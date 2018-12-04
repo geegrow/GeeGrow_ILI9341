@@ -19,7 +19,7 @@
 
 /**************************************************************************/
 /*!
-    @brief  Pull down and up WR pin to flush data from integral circuit to
+	@brief  Pull down and up WR pin to flush data from integral circuit to
 			display's RAM
 */
 /**************************************************************************/
@@ -30,14 +30,14 @@
 
 /**************************************************************************/
 /*!
-    @brief  Swap two numbers
+	@brief  Swap two numbers
 */
 /**************************************************************************/
 #define SWAP(a, b) {uint16_t t = a; a = b; b = t;}
 
 /**************************************************************************/
 /*!
-    @brief  Struct to store pins
+	@brief  Struct to store pins
 */
 /**************************************************************************/
 struct pins_t {
@@ -50,7 +50,7 @@ struct pins_t {
 
 /**************************************************************************/
 /*!
-    @brief  Struct to store current display parameters
+	@brief  Struct to store current display parameters
 */
 /**************************************************************************/
 struct params_t {
@@ -61,7 +61,7 @@ struct params_t {
 
 /**************************************************************************/
 /*!
-    @brief  Rotation modes
+	@brief  Rotation modes
 */
 /**************************************************************************/
 enum {	ROTATION_UP,
@@ -72,7 +72,7 @@ enum {	ROTATION_UP,
 
 /**************************************************************************/
 /*!
-    @brief  IDs for different types of objects
+	@brief  IDs for different types of objects
 */
 /**************************************************************************/
 enum {	OBJ_PIXEL,
@@ -86,7 +86,7 @@ enum {	OBJ_PIXEL,
 
 /**************************************************************************/
 /*!
-    @brief  Parent class for main class and object classes, which allows
+	@brief  Parent class for main class and object classes, which allows
 			object classes to use drawing functions of main class
 */
 /**************************************************************************/

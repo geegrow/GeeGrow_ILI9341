@@ -16,7 +16,7 @@
 
 /**************************************************************************/
 /*!
-    @brief  Instantiate GeeGrow SSD1306 driver for 128x32 display
+	@brief	Instantiate GeeGrow SSD1306 driver for 128x32 display
 */
 /**************************************************************************/
 GeeGrow_ILI9341::GeeGrow_ILI9341(){
@@ -26,12 +26,12 @@ GeeGrow_ILI9341::GeeGrow_ILI9341(){
 
 /**************************************************************************/
 /*!
-    @brief  Configuration and init sequence for ILI9341 display
-    @param	_led	LED pin
-    @param	_reset	RESET pin
-    @param	_dc		DC pin
-    @param	_wr		WR pin
-    @param	_cs		CS pin
+	@brief	Configuration and init sequence for ILI9341 display
+	@param	_led	LED pin
+	@param	_reset	RESET pin
+	@param	_dc		DC pin
+	@param	_wr		WR pin
+	@param	_cs		CS pin
 */
 /**************************************************************************/
 void GeeGrow_ILI9341::init(uint8_t _led, uint8_t _reset, uint8_t _dc, uint8_t _wr, uint8_t _cs){
@@ -51,7 +51,7 @@ void GeeGrow_ILI9341::init(uint8_t _led, uint8_t _reset, uint8_t _dc, uint8_t _w
 	SPI.begin();
 	// Serial
 	Serial.begin(9600);
-    while(!Serial);
+	while(!Serial);
 	// Hardware Reset
 	digitalWrite(this->pins.reset, HIGH);
 	delay(1);
@@ -144,7 +144,7 @@ void GeeGrow_ILI9341::init(uint8_t _led, uint8_t _reset, uint8_t _dc, uint8_t _w
 
 /**************************************************************************/
 /*!
-    @brief  Turn on LED on display
+	@brief	Turn on LED on display
 */
 /**************************************************************************/
 void GeeGrow_ILI9341::turnLedOn(){
@@ -153,7 +153,7 @@ void GeeGrow_ILI9341::turnLedOn(){
 
 /**************************************************************************/
 /*!
-    @brief  Turn off LED on display
+	@brief	Turn off LED on display
 */
 /**************************************************************************/
 void GeeGrow_ILI9341::turnLedOff(){
@@ -162,7 +162,7 @@ void GeeGrow_ILI9341::turnLedOff(){
 
 /**************************************************************************/
 /*!
-    @brief  Turn on display
+	@brief	Turn on display
 */
 /**************************************************************************/
 void GeeGrow_ILI9341::turnDisplayOn(){
@@ -172,7 +172,7 @@ void GeeGrow_ILI9341::turnDisplayOn(){
 
 /**************************************************************************/
 /*!
-    @brief  Turn off display
+	@brief	Turn off display
 */
 /**************************************************************************/
 void GeeGrow_ILI9341::turnDisplayOff(){
@@ -182,9 +182,9 @@ void GeeGrow_ILI9341::turnDisplayOff(){
 
 /**************************************************************************/
 /*!
-    @brief  Select range of columns in display's RAM
-    @param	_start	Start of range
-    @param	_end	End of range
+	@brief	Select range of columns in display's RAM
+	@param	_start	Start of range
+	@param	_end	End of range
 */
 /**************************************************************************/
 void GeeGrow_ILI9341::setColumn(int16_t _start, int16_t _end){
@@ -197,9 +197,9 @@ void GeeGrow_ILI9341::setColumn(int16_t _start, int16_t _end){
 
 /**************************************************************************/
 /*!
-    @brief  Select range of pages (rows) in display's RAM
-    @param	_start	Start of range
-    @param	_end	End of range
+	@brief	Select range of pages (rows) in display's RAM
+	@param	_start	Start of range
+	@param	_end	End of range
 */
 /**************************************************************************/
 void GeeGrow_ILI9341::setPage(int16_t _start, int16_t _end){
@@ -212,11 +212,11 @@ void GeeGrow_ILI9341::setPage(int16_t _start, int16_t _end){
 
 /**************************************************************************/
 /*!
-    @brief  Draw a certain pixel of a certain color
-    @param	_x0		X coordinate of pixel
-    @param	_y0		Y coordinate of pixel
-    @param	_color	Color of pixel to draw
-    @return	Status byte
+	@brief	Draw a certain pixel of a certain color
+	@param	_x0		X coordinate of pixel
+	@param	_y0		Y coordinate of pixel
+	@param	_color	Color of pixel to draw
+	@return	Status byte
 */
 /**************************************************************************/
 int8_t GeeGrow_ILI9341::drawPixel(int16_t _x0, int16_t _y0, uint16_t _color){
@@ -238,8 +238,8 @@ int8_t GeeGrow_ILI9341::drawPixel(int16_t _x0, int16_t _y0, uint16_t _color){
 
 /**************************************************************************/
 /*!
-    @brief  Fill screen with certain color
-	@param  _color  Color to fill screen
+	@brief	Fill screen with certain color
+	@param	_color  Color to fill screen
 */
 /**************************************************************************/
 void GeeGrow_ILI9341::fillDisplay(uint16_t _color){
@@ -252,8 +252,8 @@ void GeeGrow_ILI9341::fillDisplay(uint16_t _color){
 
 /**************************************************************************/
 /*!
-    @brief  Set rotation mode
-    @param	_rotation	Rotation mode
+	@brief	Set rotation mode
+	@param	_rotation	Rotation mode
 */
 /**************************************************************************/
 void GeeGrow_ILI9341::setRotation(uint8_t _rotation){
@@ -282,8 +282,8 @@ void GeeGrow_ILI9341::setRotation(uint8_t _rotation){
 
 /**************************************************************************/
 /*!
-    @brief  Get current rotation mode
-    @return	Value of rotation mode
+	@brief	Get current rotation mode
+	@return	Value of rotation mode
 */
 /**************************************************************************/
 uint8_t GeeGrow_ILI9341::getRotation(){
@@ -292,8 +292,8 @@ uint8_t GeeGrow_ILI9341::getRotation(){
 
 /**************************************************************************/
 /*!
-    @brief  Get current width of display
-    @return	Value of width
+	@brief	Get current width of display
+	@return	Value of width
 */
 /**************************************************************************/
 int16_t GeeGrow_ILI9341::getWidth(){
@@ -302,8 +302,8 @@ int16_t GeeGrow_ILI9341::getWidth(){
 
 /**************************************************************************/
 /*!
-    @brief  Get current height of display
-    @return	Value of height
+	@brief 	Get current height of display
+	@return	Value of height
 */
 /**************************************************************************/
 int16_t GeeGrow_ILI9341::getHeight(){
@@ -312,8 +312,8 @@ int16_t GeeGrow_ILI9341::getHeight(){
 
 /**************************************************************************/
 /*!
-    @brief  Attach separate libraries with different symbol packs and addon features
-	@param  _libs  Bitmask which defines libs that should be attached
+	@brief 	Attach separate libraries with different symbol packs and addon features
+	@param 	_libs 	Bitmask which defines libs that should be attached
 */
 /**************************************************************************/
 void GeeGrow_ILI9341::attachLibs(uint8_t _libs){
@@ -357,8 +357,8 @@ void GeeGrow_ILI9341::attachLibs(uint8_t _libs){
 
 /**************************************************************************/
 /*!
-    @brief  Set rotation mode
-    @param	_encoding	Value of encoding
+	@brief	Set rotation mode
+	@param	_encoding	Value of encoding
 */
 /**************************************************************************/
 void GeeGrow_ILI9341::setEncoding(uint8_t _encoding){
@@ -371,8 +371,8 @@ void GeeGrow_ILI9341::setEncoding(uint8_t _encoding){
 
 /**************************************************************************/
 /*!
-    @brief  Get current rotation mode
-    @return	Value of rotation mode
+	@brief	Get current rotation mode
+	@return	Value of rotation mode
 */
 /**************************************************************************/
 int8_t GeeGrow_ILI9341::getEncoding(){
@@ -385,11 +385,11 @@ int8_t GeeGrow_ILI9341::getEncoding(){
 
 /**************************************************************************/
 /*!
-    @brief  Convert coordinates of selected range from current rotation
-    		to X coordinate of raw hardware rotation
-    @param	_x0	Current X coordinate
-    @param	_y0	Current Y coordinate
-    @return	Value of hardware X coordinate
+	@brief	Convert coordinates of selected range from current rotation
+			to X coordinate of raw hardware rotation
+	@param	_x0	Current X coordinate
+	@param	_y0	Current Y coordinate
+	@return	Value of hardware X coordinate
 */
 /**************************************************************************/
 int16_t GeeGrow_ILI9341::castX(int16_t _x0, int16_t _y0){
@@ -415,11 +415,11 @@ int16_t GeeGrow_ILI9341::castX(int16_t _x0, int16_t _y0){
 
 /**************************************************************************/
 /*!
-    @brief  Convert coordinates of selected range from current rotation
-    		to Y coordinate of raw hardware rotation
-    @param	_x0	Current X coordinate
-    @param	_y0	Current Y coordinate
-    @return	Value of hardware Y coordinate
+	@brief	Convert coordinates of selected range from current rotation
+			to Y coordinate of raw hardware rotation
+	@param	_x0	Current X coordinate
+	@param	_y0	Current Y coordinate
+	@return	Value of hardware Y coordinate
 */
 /**************************************************************************/
 int16_t GeeGrow_ILI9341::castY(int16_t _x0, int16_t _y0){
@@ -445,12 +445,12 @@ int16_t GeeGrow_ILI9341::castY(int16_t _x0, int16_t _y0){
 
 /**************************************************************************/
 /*!
-    @brief  Convert coordinates of selected range from current rotation to
+	@brief	Convert coordinates of selected range from current rotation to
 			coordinates of raw hardware rotation. And select relevant range.
-    @param	_x0	X coordinate of start point
-    @param	_y0	Y coordinate of start point
-    @param	_x1	X coordinate of end point
-    @param	_y1	Y coordinate of end point
+	@param	_x0	X coordinate of start point
+	@param	_y0	Y coordinate of start point
+	@param	_x1	X coordinate of end point
+	@param	_y1	Y coordinate of end point
 */
 /**************************************************************************/
 void GeeGrow_ILI9341::castSelectedRange(int16_t _x0, int16_t _y0, int16_t _x1, int16_t _y1){
@@ -472,11 +472,11 @@ void GeeGrow_ILI9341::castSelectedRange(int16_t _x0, int16_t _y0, int16_t _x1, i
 
 /**************************************************************************/
 /*!
-    @brief  Draw vertical line
-    @param	_x0		X coordinate of top point of line
-    @param	_y0		Y coordinate of top point of line
-    @param	_height	Height of line
-    @param	_color	Color of line to draw
+	@brief	Draw vertical line
+	@param	_x0		X coordinate of top point of line
+	@param	_y0		Y coordinate of top point of line
+	@param	_height	Height of line
+	@param	_color	Color of line to draw
 */
 /**************************************************************************/
 void GeeGrow_ILI9341::drawFastVLine(int16_t _x0, int16_t _y0, int16_t _height, uint16_t _color){
@@ -493,11 +493,11 @@ void GeeGrow_ILI9341::drawFastVLine(int16_t _x0, int16_t _y0, int16_t _height, u
 
 /**************************************************************************/
 /*!
-    @brief  Draw horizontal line
-    @param	_x0		X coordinate of left point of line
-    @param	_y0		Y coordinate of left point of line
-    @param	_width	Width of line
-    @param	_color	Color of line to draw
+	@brief	Draw horizontal line
+	@param	_x0		X coordinate of left point of line
+	@param	_y0		Y coordinate of left point of line
+	@param	_width	Width of line
+	@param	_color	Color of line to draw
 */
 /**************************************************************************/
 void GeeGrow_ILI9341::drawFastHLine(int16_t _x0, int16_t _y0, int16_t _width, uint16_t _color){
@@ -514,12 +514,12 @@ void GeeGrow_ILI9341::drawFastHLine(int16_t _x0, int16_t _y0, int16_t _width, ui
 
 /**************************************************************************/
 /*!
-    @brief  Draw rectangle
-    @param	_x0		X coordinate of top left corner
-    @param	_y0		Y coordinate of top left corner
-    @param	_width	Width of rectangle
+	@brief	Draw rectangle
+	@param	_x0		X coordinate of top left corner
+	@param	_y0		Y coordinate of top left corner
+	@param	_width	Width of rectangle
 	@param	_height	Height of rectangle
-    @param	_color	Color of rectangle to draw
+	@param	_color	Color of rectangle to draw
 	@return	Status byte
 */
 /**************************************************************************/
@@ -549,12 +549,12 @@ int8_t GeeGrow_ILI9341::drawRect(
 
 /**************************************************************************/
 /*!
-    @brief  Draw filled rectangle
-    @param	_x0		X coordinate of top left corner
-    @param	_y0		Y coordinate of top left corner
-    @param	_width	Width of rectangle
+	@brief	Draw filled rectangle
+	@param	_x0		X coordinate of top left corner
+	@param	_y0		Y coordinate of top left corner
+	@param	_width	Width of rectangle
 	@param	_height	Height of rectangle
-    @param	_color	Color of rectangle to fill
+	@param	_color	Color of rectangle to fill
 	@return	Status byte
 */
 /**************************************************************************/
@@ -582,11 +582,11 @@ int8_t GeeGrow_ILI9341::fillRect(
 
 /**************************************************************************/
 /*!
-    @brief  Draw circle
-    @param	_x0		X coordinate of center
-    @param	_y0		Y coordinate of center
-    @param	_radius	Radius of circle
-    @param	_color	Color of circle to draw
+	@brief	Draw circle
+	@param	_x0		X coordinate of center
+	@param	_y0		Y coordinate of center
+	@param	_radius	Radius of circle
+	@param	_color	Color of circle to draw
 	@return	Status byte
 */
 /**************************************************************************/
@@ -606,30 +606,30 @@ int8_t GeeGrow_ILI9341::drawCircle(int16_t _x0, int16_t _y0, int16_t _radius, ui
 	int16_t y = 0;
 	int16_t err = 2 - 2*_radius;
 	int16_t e2;
-    while (x <= 0) {
-        this->drawPixel(_x0 - x, _y0 + y, _color);
-        this->drawPixel(_x0 + x, _y0 + y, _color);
-        this->drawPixel(_x0 + x, _y0 - y, _color);
-        this->drawPixel(_x0 - x, _y0 - y, _color);
-        e2 = err;
-        if (e2 <= y) {
-            err += ++y * 2 + 1;
-            if (-x == y && e2 <= x)
-            	e2 = 0;
-        }
-        if (e2 > x)
-        	err += ++x * 2 + 1;
-    }
+	while (x <= 0) {
+		this->drawPixel(_x0 - x, _y0 + y, _color);
+		this->drawPixel(_x0 + x, _y0 + y, _color);
+		this->drawPixel(_x0 + x, _y0 - y, _color);
+		this->drawPixel(_x0 - x, _y0 - y, _color);
+		e2 = err;
+		if (e2 <= y) {
+			err += ++y * 2 + 1;
+			if (-x == y && e2 <= x)
+				e2 = 0;
+		}
+		if (e2 > x)
+			err += ++x * 2 + 1;
+	}
 	return 0;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Draw filled circle
-    @param	_x0		X coordinate of center
-    @param	_y0		Y coordinate of center
-    @param	_radius	Radius of circle
-    @param	_color	Color of circle to fill
+	@brief	Draw filled circle
+	@param	_x0		X coordinate of center
+	@param	_y0		Y coordinate of center
+	@param	_radius	Radius of circle
+	@param	_color	Color of circle to fill
 	@return	Status byte
 */
 /**************************************************************************/
@@ -649,29 +649,29 @@ int8_t GeeGrow_ILI9341::fillCircle(int16_t _x0, int16_t _y0, int16_t _radius, ui
 	int16_t y = 0;
 	int16_t err = 2 - 2*_radius;
 	int16_t e2;
-    do {
-        this->drawFastVLine(_x0 - x, _y0 - y, 2*y, _color);
-        this->drawFastVLine(_x0 + x, _y0 - y, 2*y, _color);
-        e2 = err;
-        if (e2 <= y) {
-            err += ++y * 2 + 1;
-            if (-x == y && e2 <= x)
-            	e2 = 0;
-        }
-        if (e2 > x)
-        	err += ++x * 2 + 1;
-    } while (x <= 0);
+	do {
+		this->drawFastVLine(_x0 - x, _y0 - y, 2*y, _color);
+		this->drawFastVLine(_x0 + x, _y0 - y, 2*y, _color);
+		e2 = err;
+		if (e2 <= y) {
+			err += ++y * 2 + 1;
+			if (-x == y && e2 <= x)
+				e2 = 0;
+		}
+		if (e2 > x)
+			err += ++x * 2 + 1;
+	} while (x <= 0);
 	return 0;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Draw line
-    @param	_x0		X coordinate of start point
-    @param	_y0		Y coordinate of start point
+	@brief	Draw line
+	@param	_x0		X coordinate of start point
+	@param	_y0		Y coordinate of start point
 	@param	_x1		X coordinate of end point
-    @param	_y1		Y coordinate of end point
-    @param	_color	Color of line to draw
+	@param	_y1		Y coordinate of end point
+	@param	_color	Color of line to draw
 	@return	Status byte
 */
 /**************************************************************************/
@@ -726,14 +726,14 @@ int8_t GeeGrow_ILI9341::drawLine(int16_t _x0, int16_t _y0, int16_t _x1, int16_t 
 
 /**************************************************************************/
 /*!
-    @brief  Draw triangle
-    @param	_x0		X coordinate of first point
-    @param	_y0		Y coordinate of first point
+	@brief	Draw triangle
+	@param	_x0		X coordinate of first point
+	@param	_y0		Y coordinate of first point
 	@param	_x1		X coordinate of second point
-    @param	_y1		Y coordinate of second point
+	@param	_y1		Y coordinate of second point
 	@param	_x2		X coordinate of third point
-    @param	_y2		Y coordinate of third point
-    @param	_color	Color of triangle to draw
+	@param	_y2		Y coordinate of third point
+	@param	_color	Color of triangle to draw
 	@return	Status byte
 */
 /**************************************************************************/
@@ -766,12 +766,12 @@ int8_t GeeGrow_ILI9341::drawTriangle(
 
 /**************************************************************************/
 /*!
-    @brief  Print symbol from addon library
-    @param	_char	Symbol to print
+	@brief	Print symbol from addon library
+	@param	_char	Symbol to print
 	@param	_x0		X coordinate of top left corner of the symbol
-    @param	_y0		Y coordinate of top left corner of the symbol
-    @param	_size	Size of font
-    @param	_color	Color of symbol to print
+	@param	_y0		Y coordinate of top left corner of the symbol
+	@param	_size	Size of font
+	@param	_color	Color of symbol to print
 	@note	Size of font 1 is equivalent to bitmap 8x16
 */
 /**************************************************************************/
@@ -859,12 +859,12 @@ void GeeGrow_ILI9341::printChar(char _char, int16_t _x0, int16_t _y0, uint8_t _s
 
 /**************************************************************************/
 /*!
-    @brief  Print string
-    @param	_string	String to print
+	@brief	Print string
+	@param	_string	String to print
 	@param	_x0		X coordinate of top left corner of the string
-    @param	_y0		Y coordinate of top left corner of the string
-    @param	_size	Size of font
-    @param	_color	Color of symbols to print
+	@param	_y0		Y coordinate of top left corner of the string
+	@param	_size	Size of font
+	@param	_color	Color of symbols to print
 	@note	Size of font 1 is equivalent to bitmap 8x16
 */
 /**************************************************************************/
@@ -884,8 +884,8 @@ void GeeGrow_ILI9341::printStr(String _str, int16_t _x0, int16_t _y0, uint8_t _s
 
 /**************************************************************************/
 /*!
-    @brief  Send command via SPI
-	@param  _cmd  Command byte
+	@brief	Send command via SPI
+	@param	_cmd	Command byte
 */
 /**************************************************************************/
 void GeeGrow_ILI9341::sendSpiCmd(uint8_t _cmd){
@@ -898,8 +898,8 @@ void GeeGrow_ILI9341::sendSpiCmd(uint8_t _cmd){
 
 /**************************************************************************/
 /*!
-    @brief  Send 1 data byte via SPI
-	@param  _data  Data byte
+	@brief	Send 1 data byte via SPI
+	@param	_data	Data byte
 */
 /**************************************************************************/
 void GeeGrow_ILI9341::sendSpiData(uint8_t _data){
@@ -912,8 +912,8 @@ void GeeGrow_ILI9341::sendSpiData(uint8_t _data){
 
 /**************************************************************************/
 /*!
-    @brief  Send 2 data bytes via SPI
-	@param  _data  Data bytes
+	@brief	Send 2 data bytes via SPI
+	@param	_data	Data bytes
 */
 /**************************************************************************/
 void GeeGrow_ILI9341::sendSpiData16(uint16_t _data){
@@ -927,9 +927,9 @@ void GeeGrow_ILI9341::sendSpiData16(uint16_t _data){
 
 /**************************************************************************/
 /*!
-    @brief  Write array of certain color to display's RAM
-	@param  _num	Number of pixels to fill with certain color
-	@param  _color	Color to fill pixels
+	@brief	Write array of certain color to display's RAM
+	@param	_num	Number of pixels to fill with certain color
+	@param	_color	Color to fill pixels
 */
 /**************************************************************************/
 void GeeGrow_ILI9341::writeMemory(uint32_t _num, uint16_t _color){
@@ -956,9 +956,9 @@ void GeeGrow_ILI9341::writeMemory(uint32_t _num, uint16_t _color){
 
 /**************************************************************************/
 /*!
-    @brief  Write array of user's bytes to display's RAM
-	@param  _num	Number of pixels to fill
-	@param  _buf	Pointer to array of data to send
+	@brief	Write array of user's bytes to display's RAM
+	@param	_num	Number of pixels to fill
+	@param	_buf	Pointer to array of data to send
 */
 /**************************************************************************/
 void GeeGrow_ILI9341::writeMemoryBuf(uint32_t _num, uint16_t *_buf){
@@ -984,7 +984,7 @@ void GeeGrow_ILI9341::writeMemoryBuf(uint32_t _num, uint16_t *_buf){
 
 /**************************************************************************/
 /*!
-    @brief  Create an object of pixel
+	@brief	Create an object of pixel
 	@return	Pointer to created object
 */
 /**************************************************************************/
@@ -996,7 +996,7 @@ GeeGrow_ILI9341_objectBase* GeeGrow_ILI9341::createPixelObj(){
 
 /**************************************************************************/
 /*!
-    @brief  Create an object of line
+	@brief	Create an object of line
 	@return	Pointer to created object
 */
 /**************************************************************************/
@@ -1008,7 +1008,7 @@ GeeGrow_ILI9341_objectBase* GeeGrow_ILI9341::createLineObj(){
 
 /**************************************************************************/
 /*!
-    @brief  Create an object of rectangle
+	@brief	Create an object of rectangle
 	@return	Pointer to created object
 */
 /**************************************************************************/
@@ -1020,7 +1020,7 @@ GeeGrow_ILI9341_objectBase* GeeGrow_ILI9341::createRectObj(){
 
 /**************************************************************************/
 /*!
-    @brief  Create an object of filled rectangle
+	@brief	Create an object of filled rectangle
 	@return	Pointer to created object
 */
 /**************************************************************************/
@@ -1032,7 +1032,7 @@ GeeGrow_ILI9341_objectBase* GeeGrow_ILI9341::createFillRectObj(){
 
 /**************************************************************************/
 /*!
-    @brief  Create an object of circle
+	@brief	Create an object of circle
 	@return	Pointer to created object
 */
 /**************************************************************************/
@@ -1044,7 +1044,7 @@ GeeGrow_ILI9341_objectBase* GeeGrow_ILI9341::createCircleObj(){
 
 /**************************************************************************/
 /*!
-    @brief  Create an object of filled circle
+	@brief	Create an object of filled circle
 	@return	Pointer to created object
 */
 /**************************************************************************/
@@ -1056,7 +1056,7 @@ GeeGrow_ILI9341_objectBase* GeeGrow_ILI9341::createFillCircleObj(){
 
 /**************************************************************************/
 /*!
-    @brief  Create an object of triangle
+	@brief	Create an object of triangle
 	@return	Pointer to created object
 */
 /**************************************************************************/
@@ -1068,7 +1068,7 @@ GeeGrow_ILI9341_objectBase* GeeGrow_ILI9341::createTriangleObj(){
 
 /**************************************************************************/
 /*!
-    @brief  Initialize SD card
+	@brief	Initialize SD card
 	@param	_cs_sd	Pin of SD card Chip Select
 	@return	Status byte
 */
@@ -1085,7 +1085,7 @@ int8_t GeeGrow_ILI9341::initSD(uint8_t _cs_sd){
 
 /**************************************************************************/
 /*!
-    @brief  Show a .bmp image from SD card on the screen
+	@brief	Show a .bmp image from SD card on the screen
 	@param	_x0			X coordinate of top left corner of the image
 	@param	_y0			Y coordinate of top left corner of the image
 	@param	_filename	Full path to image on SD card
@@ -1110,13 +1110,13 @@ int8_t GeeGrow_ILI9341::showBMPfromSD(int16_t _x0, int16_t _y0, char *_filename)
 		return -1;
 	}
 	if (this->deviceSD->BITMAPFILEHEADER.bfType != 0x4D42){
-        Serial.println(F("showBMPfromSD(): image type not valid"));
-        return -1;
-    }
-    if (this->deviceSD->BITMAPINFOHEADER.biBitCount != 16){
-        Serial.println(F("showBMPfromSD(): color depth not valid"));
-        return -1;
-    }
+		Serial.println(F("showBMPfromSD(): image type not valid"));
+		return -1;
+	}
+	if (this->deviceSD->BITMAPINFOHEADER.biBitCount != 16){
+		Serial.println(F("showBMPfromSD(): color depth not valid"));
+		return -1;
+	}
 
 	uint16_t blocks_num = this->deviceSD->BITMAPINFOHEADER.biHeight;
 	uint16_t block_size_pixels = this->deviceSD->BITMAPINFOHEADER.biWidth;
@@ -1143,7 +1143,7 @@ int8_t GeeGrow_ILI9341::showBMPfromSD(int16_t _x0, int16_t _y0, char *_filename)
 
 /**************************************************************************/
 /*!
-    @brief  Configure display properly for correct image mapping. Needed
+	@brief	Configure display properly for correct image mapping. Needed
 			only while image is being copied to display's RAM
 */
 /**************************************************************************/
@@ -1172,7 +1172,7 @@ void GeeGrow_ILI9341::OnSettingsForBMP(){
 
 /**************************************************************************/
 /*!
-    @brief  Return display configuration to default values after coping the
+	@brief	Return display configuration to default values after coping the
 			image from SD card
 */
 /**************************************************************************/
@@ -1183,12 +1183,12 @@ void GeeGrow_ILI9341::OffSettingsForBMP(){
 
 /**************************************************************************/
 /*!
-    @brief  Convert coordinates of selected range (where the image will be
-	 		placed) for correct image mapping.
+	@brief	Convert coordinates of selected range (where the image will be
+			placed) for correct image mapping.
 	@param	_x0					X coordinate of left point of row, which will
-	 							be mapped during this iteration
+								be mapped during this iteration
 	@param	_y0					Y coordinate of left point of row, which will
-	 							be mapped during this iteration
+								be mapped during this iteration
 	@param	_block_size_pixels	Number of pixels in block (row)
 	@param	_blocks_num			Number of blocks (rows) in image
 	@param	_i					Number of current block (row)
@@ -1201,42 +1201,42 @@ void GeeGrow_ILI9341::castSelectedRangeForBMP(
 	uint16_t _blocks_num,
 	uint16_t _i
 ){
-   switch (this->params.rotation){
-	   case ROTATION_UP:
-		   this->castSelectedRange(
-			   this->params.width - _x0 - _block_size_pixels,
-			   _y0 + _blocks_num - _i - 1,
-			   this->params.width - _x0 - 1,
-			   _y0 + _blocks_num - _i - 1
-		   );
-		   break;
-	   case ROTATION_DOWN:
-		   this->castSelectedRange(
-			   _x0,
-			   _y0 + _blocks_num - _i - 1,
-			   _x0 + _block_size_pixels - 1,
-			   _y0 + _blocks_num - _i - 1
-		   );
-		   break;
-	   case ROTATION_LEFT:
-		   this->castSelectedRange(
-			   this->params.width - _x0 - _block_size_pixels,
-			   _y0 + _blocks_num - _i - 1,
-			   this->params.width - _x0 - 1,
-			   _y0 + _blocks_num - _i - 1
-		   );
-		   break;
-	   case ROTATION_RIGHT:
-		   this->castSelectedRange(
-			   _x0,
-			   _y0 + _blocks_num - _i - 1,
-			   _x0 + _block_size_pixels - 1,
-			   _y0 + _blocks_num - _i - 1
-		   );
-		   break;
-	   default:
-		   break;
-   }
+	switch (this->params.rotation){
+		case ROTATION_UP:
+			this->castSelectedRange(
+				this->params.width - _x0 - _block_size_pixels,
+				_y0 + _blocks_num - _i - 1,
+				this->params.width - _x0 - 1,
+				_y0 + _blocks_num - _i - 1
+			);
+			break;
+		case ROTATION_DOWN:
+			this->castSelectedRange(
+				_x0,
+				_y0 + _blocks_num - _i - 1,
+				_x0 + _block_size_pixels - 1,
+				_y0 + _blocks_num - _i - 1
+			);
+			break;
+		case ROTATION_LEFT:
+			this->castSelectedRange(
+				this->params.width - _x0 - _block_size_pixels,
+				_y0 + _blocks_num - _i - 1,
+				this->params.width - _x0 - 1,
+				_y0 + _blocks_num - _i - 1
+			);
+			break;
+		case ROTATION_RIGHT:
+			this->castSelectedRange(
+				_x0,
+				_y0 + _blocks_num - _i - 1,
+				_x0 + _block_size_pixels - 1,
+				_y0 + _blocks_num - _i - 1
+			);
+			break;
+		default:
+			break;
+	}
 }
 
 GeeGrow_ILI9341 display;

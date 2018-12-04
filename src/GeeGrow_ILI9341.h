@@ -32,7 +32,7 @@
 
 /**************************************************************************/
 /*!
-    @brief  Class that stores state and functions for interacting with ILI9341 display
+	@brief  Class that stores state and functions for interacting with ILI9341 display
 */
 /**************************************************************************/
 class GeeGrow_ILI9341 : public GeeGrow_ILI9341_partnership {
