@@ -49,9 +49,6 @@ void GeeGrow_ILI9341::init(uint8_t _led, uint8_t _reset, uint8_t _dc, uint8_t _w
 	pinMode(this->pins.cs, OUTPUT);
 	// SPI
 	SPI.begin();
-	// Serial
-	Serial.begin(9600);
-	while(!Serial);
 	// Hardware Reset
 	digitalWrite(this->pins.reset, HIGH);
 	delay(1);
