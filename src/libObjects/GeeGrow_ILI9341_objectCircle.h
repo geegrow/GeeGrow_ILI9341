@@ -20,7 +20,7 @@
 
 /**************************************************************************/
 /*!
-    @brief  Class that stores state and functions of object circle
+    @brief    Class that stores state and functions of object circle
 */
 /**************************************************************************/
 class GeeGrow_ILI9341_objectCircle : public GeeGrow_ILI9341_objectBase {
@@ -31,7 +31,7 @@ class GeeGrow_ILI9341_objectCircle : public GeeGrow_ILI9341_objectBase {
         );
         ~GeeGrow_ILI9341_objectCircle();
         void appear();
-		void disappear();
+        void disappear();
         void moveTo(
             int16_t _x0,
             int16_t _y0,
@@ -39,13 +39,13 @@ class GeeGrow_ILI9341_objectCircle : public GeeGrow_ILI9341_objectBase {
             uint16_t _color
         );
         void moveRight(int16_t _delta);
-		void moveLeft(int16_t _delta);
-		void moveUp(int16_t _delta);
-		void moveDown(int16_t _delta);
-		void moveRightUp(int16_t _delta_x, int16_t _delta_y);
-		void moveRightDown(int16_t _delta_x, int16_t _delta_y);
-		void moveLeftUp(int16_t _delta_x, int16_t _delta_y);
-		void moveLeftDown(int16_t _delta_x, int16_t _delta_y);
+        void moveLeft(int16_t _delta);
+        void moveUp(int16_t _delta);
+        void moveDown(int16_t _delta);
+        void moveRightUp(int16_t _delta_x, int16_t _delta_y);
+        void moveRightDown(int16_t _delta_x, int16_t _delta_y);
+        void moveLeftUp(int16_t _delta_x, int16_t _delta_y);
+        void moveLeftDown(int16_t _delta_x, int16_t _delta_y);
         int16_t getRadius();
         void setRadius(int16_t _radius);
 

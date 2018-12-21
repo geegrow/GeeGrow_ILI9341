@@ -22,49 +22,49 @@
 
 /**************************************************************************/
 /*!
-    @brief  Size of a buffer to store fragment of image
-    @note   Size is 640 as image is sent by rows, and maximum size of row
-            is 320 pixels (640 bytes)
+    @brief    Size of a buffer to store fragment of image
+    @note     Size is 640 as image is sent by rows, and maximum size of row
+              is 320 pixels (640 bytes)
 */
 /**************************************************************************/
 #define SD_BUFFER_SIZE  640
 
 /**************************************************************************/
 /*!
-    @brief  Struct to store file header of .bmp image
+    @brief    Struct to store file header of .bmp image
 */
 /**************************************************************************/
 struct BITMAPFILEHEADER_t {
-    uint16_t bfType;
-    uint32_t bfSize;
-    uint16_t rsvd0;
-    uint16_t rsvd1;
-    uint32_t bfOffBits;
+    uint16_t bfType = 0;
+    uint32_t bfSize = 0;
+    uint16_t rsvd0 = 0;
+    uint16_t rsvd1 = 0;
+    uint32_t bfOffBits = 0;
 };
 
 /**************************************************************************/
 /*!
-    @brief  Struct to store image header of .bmp image
+    @brief    Struct to store image header of .bmp image
 */
 /**************************************************************************/
 struct BITMAPINFOHEADER_t
 {
-    uint32_t biSize;
-    uint32_t biWidth;
-    uint32_t biHeight;
-    uint16_t biPlanes;
-    uint16_t biBitCount;
-    uint32_t biCompression;
-    uint32_t biSizeImage;
-    int32_t  biXPelsPerMeter;
-    int32_t  biYPelsPerMeter;
-    uint32_t biClrUsed;
-    uint32_t biClrImportant;
+    uint32_t biSize = 0;
+    uint32_t biWidth = 0;
+    uint32_t biHeight = 0;
+    uint16_t biPlanes = 0;
+    uint16_t biBitCount = 0;
+    uint32_t biCompression = 0;
+    uint32_t biSizeImage = 0;
+    int32_t  biXPelsPerMeter = 0;
+    int32_t  biYPelsPerMeter = 0;
+    uint32_t biClrUsed = 0;
+    uint32_t biClrImportant = 0;
 };
 
 /**************************************************************************/
 /*!
-    @brief  Class that stores state and functions to communicate with SD card
+    @brief    Class that stores state and functions to communicate with SD card
 */
 /**************************************************************************/
 class GeeGrow_ILI9341_deviceSD {
@@ -81,7 +81,7 @@ class GeeGrow_ILI9341_deviceSD {
     private:
         SdFat SD;
         SdFile file;
-        char *filename = NULL;
+        char *filename = nullptr;
         uint16_t sd_buffer [SD_BUFFER_SIZE];
 };
 

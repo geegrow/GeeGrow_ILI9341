@@ -17,10 +17,10 @@
 
 /**************************************************************************/
 /*!
-    @brief  Instantiate a triangle object
-	@param	_objectType	Type of object to create
-	@param	_partner	Pointer to class, which is a parent of main class and
-						allows to use drawing functions of main class
+    @brief    Instantiate a triangle object
+    @param    _objectType    Type of object to create
+    @param    _partner       Pointer to class, which is a parent of main class and
+                             allows to use drawing functions of main class
 */
 /**************************************************************************/
 GeeGrow_ILI9341_objectTriangle::GeeGrow_ILI9341_objectTriangle(
@@ -32,7 +32,7 @@ GeeGrow_ILI9341_objectTriangle::GeeGrow_ILI9341_objectTriangle(
 
 /**************************************************************************/
 /*!
-    @brief  Destruct the object
+    @brief    Destruct the object
 */
 /**************************************************************************/
 GeeGrow_ILI9341_objectTriangle::~GeeGrow_ILI9341_objectTriangle(){
@@ -41,7 +41,7 @@ GeeGrow_ILI9341_objectTriangle::~GeeGrow_ILI9341_objectTriangle(){
 
 /**************************************************************************/
 /*!
-    @brief  Shows the object on the screen
+    @brief    Shows the object on the screen
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectTriangle::appear(){
@@ -58,7 +58,7 @@ void GeeGrow_ILI9341_objectTriangle::appear(){
 
 /**************************************************************************/
 /*!
-    @brief  Hides the object on the screen
+    @brief    Hides the object on the screen
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectTriangle::disappear(){
@@ -75,14 +75,14 @@ void GeeGrow_ILI9341_objectTriangle::disappear(){
 
 /**************************************************************************/
 /*!
-    @brief  Set the object to certain place with certain properties
-    @param  _x0     X coordinate of first point
-    @param  _y0     Y coordinate of first point
-    @param  _x1     X coordinate of second point
-    @param  _y1     Y coordinate of second point
-    @param  _x2     X coordinate of third point
-    @param  _y2     Y coordinate of third point
-    @param  _color  Color of the object
+    @brief    Set the object to certain place with certain properties
+    @param    _x0     X coordinate of first point
+    @param    _y0     Y coordinate of first point
+    @param    _x1     X coordinate of second point
+    @param    _y1     Y coordinate of second point
+    @param    _x2     X coordinate of third point
+    @param    _y2     Y coordinate of third point
+    @param    _color  Color of the object
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectTriangle::moveTo(
@@ -95,29 +95,29 @@ void GeeGrow_ILI9341_objectTriangle::moveTo(
     uint16_t _color
 ){
     this->disappear();
-	if (this->partner->drawTriangle(_x0, _y0, _x1, _y1, _x2, _y2, _color)){
+    if (this->partner->drawTriangle(_x0, _y0, _x1, _y1, _x2, _y2, _color)){
         // Error
-		this->appear();
-		return;
-	}
-	this->x0 = _x0;
-	this->y0 = _y0;
+        this->appear();
+        return;
+    }
+    this->x0 = _x0;
+    this->y0 = _y0;
     this->x1 = _x1;
-	this->y1 = _y1;
+    this->y1 = _y1;
     this->x2 = _x2;
-	this->y2 = _y2;
-	this->color = _color;
+    this->y2 = _y2;
+    this->color = _color;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Move the object to the right on certain number of pixels
-    @param  _delta     Numbers of pixels to move the object
+    @brief    Move the object to the right on certain number of pixels
+    @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectTriangle::moveRight(int16_t _delta){
     this->disappear();
-	if (this->partner->drawTriangle(
+    if (this->partner->drawTriangle(
             this->x0 + _delta,
             this->y0,
             this->x1 + _delta,
@@ -128,23 +128,23 @@ void GeeGrow_ILI9341_objectTriangle::moveRight(int16_t _delta){
         )
     ){
         // Error
-		this->appear();
-		return;
-	}
-	this->x0 += _delta;
+        this->appear();
+        return;
+    }
+    this->x0 += _delta;
     this->x1 += _delta;
     this->x2 += _delta;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Move the object to the left on certain number of pixels
-    @param  _delta     Numbers of pixels to move the object
+    @brief    Move the object to the left on certain number of pixels
+    @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectTriangle::moveLeft(int16_t _delta){
     this->disappear();
-	if (this->partner->drawTriangle(
+    if (this->partner->drawTriangle(
             this->x0 - _delta,
             this->y0,
             this->x1 - _delta,
@@ -155,23 +155,23 @@ void GeeGrow_ILI9341_objectTriangle::moveLeft(int16_t _delta){
         )
     ){
         // Error
-		this->appear();
-		return;
-	}
-	this->x0 -= _delta;
+        this->appear();
+        return;
+    }
+    this->x0 -= _delta;
     this->x1 -= _delta;
     this->x2 -= _delta;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Move the object up on certain number of pixels
-    @param  _delta     Numbers of pixels to move the object
+    @brief    Move the object up on certain number of pixels
+    @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectTriangle::moveUp(int16_t _delta){
     this->disappear();
-	if (this->partner->drawTriangle(
+    if (this->partner->drawTriangle(
             this->x0,
             this->y0 - _delta,
             this->x1,
@@ -182,23 +182,23 @@ void GeeGrow_ILI9341_objectTriangle::moveUp(int16_t _delta){
         )
     ){
         // Error
-		this->appear();
-		return;
-	}
-	this->y0 -= _delta;
+        this->appear();
+        return;
+    }
+    this->y0 -= _delta;
     this->y1 -= _delta;
     this->y2 -= _delta;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Move the object down on certain number of pixels
-    @param  _delta     Numbers of pixels to move the object
+    @brief    Move the object down on certain number of pixels
+    @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectTriangle::moveDown(int16_t _delta){
     this->disappear();
-	if (this->partner->drawTriangle(
+    if (this->partner->drawTriangle(
             this->x0,
             this->y0 + _delta,
             this->x1,
@@ -209,24 +209,24 @@ void GeeGrow_ILI9341_objectTriangle::moveDown(int16_t _delta){
         )
     ){
         // Error
-		this->appear();
-		return;
-	}
-	this->y0 += _delta;
+        this->appear();
+        return;
+    }
+    this->y0 += _delta;
     this->y1 += _delta;
     this->y2 += _delta;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Move the object up and to the right on certain number of pixels
-    @param  _delta_x     Numbers of pixels to move the object to the right
-    @param  _delta_y     Numbers of pixels to move the object up
+    @brief    Move the object up and to the right on certain number of pixels
+    @param    _delta_x    Numbers of pixels to move the object to the right
+    @param    _delta_y    Numbers of pixels to move the object up
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectTriangle::moveRightUp(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
-	if (this->partner->drawTriangle(
+    if (this->partner->drawTriangle(
             this->x0 + _delta_x,
             this->y0 - _delta_y,
             this->x1 + _delta_x,
@@ -237,27 +237,27 @@ void GeeGrow_ILI9341_objectTriangle::moveRightUp(int16_t _delta_x, int16_t _delt
         )
     ){
         // Error
-		this->appear();
-		return;
-	}
+        this->appear();
+        return;
+    }
     this->x0 += _delta_x;
-	this->y0 -= _delta_y;
+    this->y0 -= _delta_y;
     this->x1 += _delta_x;
-	this->y1 -= _delta_y;
+    this->y1 -= _delta_y;
     this->x2 += _delta_x;
-	this->y2 -= _delta_y;
+    this->y2 -= _delta_y;
 }
 
 /**************************************************************************/
 /*!
     @brief  Move the object down and to the right on certain number of pixels
-    @param  _delta_x     Numbers of pixels to move the object to the right
-    @param  _delta_y     Numbers of pixels to move the object down
+    @param    _delta_x    Numbers of pixels to move the object to the right
+    @param    _delta_y    Numbers of pixels to move the object down
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectTriangle::moveRightDown(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
-	if (this->partner->drawTriangle(
+    if (this->partner->drawTriangle(
             this->x0 + _delta_x,
             this->y0 + _delta_y,
             this->x1 + _delta_x,
@@ -268,27 +268,27 @@ void GeeGrow_ILI9341_objectTriangle::moveRightDown(int16_t _delta_x, int16_t _de
         )
     ){
         // Error
-		this->appear();
-		return;
-	}
+        this->appear();
+        return;
+    }
     this->x0 += _delta_x;
-	this->y0 += _delta_y;
+    this->y0 += _delta_y;
     this->x1 += _delta_x;
-	this->y1 += _delta_y;
+    this->y1 += _delta_y;
     this->x2 += _delta_x;
-	this->y2 += _delta_y;
+    this->y2 += _delta_y;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Move the object up and to the left on certain number of pixels
-    @param  _delta_x     Numbers of pixels to move the object to the left
-    @param  _delta_y     Numbers of pixels to move the object up
+    @brief    Move the object up and to the left on certain number of pixels
+    @param    _delta_x    Numbers of pixels to move the object to the left
+    @param    _delta_y    Numbers of pixels to move the object up
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectTriangle::moveLeftUp(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
-	if (this->partner->drawTriangle(
+    if (this->partner->drawTriangle(
             this->x0 - _delta_x,
             this->y0 - _delta_y,
             this->x1 - _delta_x,
@@ -299,27 +299,27 @@ void GeeGrow_ILI9341_objectTriangle::moveLeftUp(int16_t _delta_x, int16_t _delta
         )
     ){
         // Error
-		this->appear();
-		return;
-	}
+        this->appear();
+        return;
+    }
     this->x0 -= _delta_x;
-	this->y0 -= _delta_y;
+    this->y0 -= _delta_y;
     this->x1 -= _delta_x;
-	this->y1 -= _delta_y;
+    this->y1 -= _delta_y;
     this->x2 -= _delta_x;
-	this->y2 -= _delta_y;
+    this->y2 -= _delta_y;
 }
 
 /**************************************************************************/
 /*!
     @brief  Move the object down and to the left on certain number of pixels
-    @param  _delta_x     Numbers of pixels to move the object to the left
-    @param  _delta_y     Numbers of pixels to move the object down
+    @param    _delta_x    Numbers of pixels to move the object to the left
+    @param    _delta_y    Numbers of pixels to move the object down
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectTriangle::moveLeftDown(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
-	if (this->partner->drawTriangle(
+    if (this->partner->drawTriangle(
             this->x0 - _delta_x,
             this->y0 + _delta_y,
             this->x1 - _delta_x,
@@ -330,21 +330,21 @@ void GeeGrow_ILI9341_objectTriangle::moveLeftDown(int16_t _delta_x, int16_t _del
         )
     ){
         // Error
-		this->appear();
-		return;
-	}
+        this->appear();
+        return;
+    }
     this->x0 -= _delta_x;
-	this->y0 += _delta_y;
+    this->y0 += _delta_y;
     this->x1 -= _delta_x;
-	this->y1 += _delta_y;
+    this->y1 += _delta_y;
     this->x2 -= _delta_x;
-	this->y2 += _delta_y;
+    this->y2 += _delta_y;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Get X coordinate of second point
-	@return	X coordinate of second point
+    @brief    Get X coordinate of second point
+    @return   X coordinate of second point
 */
 /**************************************************************************/
 int16_t GeeGrow_ILI9341_objectTriangle::getX1(){
@@ -353,8 +353,8 @@ int16_t GeeGrow_ILI9341_objectTriangle::getX1(){
 
 /**************************************************************************/
 /*!
-    @brief  Get Y coordinate of second point
-	@return	Y coordinate of second point
+    @brief    Get Y coordinate of second point
+    @return   Y coordinate of second point
 */
 /**************************************************************************/
 int16_t GeeGrow_ILI9341_objectTriangle::getY1(){
@@ -363,8 +363,8 @@ int16_t GeeGrow_ILI9341_objectTriangle::getY1(){
 
 /**************************************************************************/
 /*!
-    @brief  Get X coordinate of third point
-	@return	X coordinate of third point
+    @brief    Get X coordinate of third point
+    @return   X coordinate of third point
 */
 /**************************************************************************/
 int16_t GeeGrow_ILI9341_objectTriangle::getX2(){
@@ -373,8 +373,8 @@ int16_t GeeGrow_ILI9341_objectTriangle::getX2(){
 
 /**************************************************************************/
 /*!
-    @brief  Get Y coordinate of third point
-	@return	Y coordinate of third point
+    @brief    Get Y coordinate of third point
+    @return   Y coordinate of third point
 */
 /**************************************************************************/
 int16_t GeeGrow_ILI9341_objectTriangle::getY2(){

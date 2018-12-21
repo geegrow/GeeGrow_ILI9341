@@ -17,10 +17,10 @@
 
 /**************************************************************************/
 /*!
-    @brief  Instantiate a pixel object
-	@param	_objectType	Type of object to create
-	@param	_partner	Pointer to class, which is a parent of main class and
-						allows to use drawing functions of main class
+    @brief    Instantiate a pixel object
+    @param    _objectType    Type of object to create
+    @param    _partner       Pointer to class, which is a parent of main class and
+                             allows to use drawing functions of main class
 */
 /**************************************************************************/
 GeeGrow_ILI9341_objectPixel::GeeGrow_ILI9341_objectPixel(
@@ -32,7 +32,7 @@ GeeGrow_ILI9341_objectPixel::GeeGrow_ILI9341_objectPixel(
 
 /**************************************************************************/
 /*!
-    @brief  Destruct the object
+    @brief    Destruct the object
 */
 /**************************************************************************/
 GeeGrow_ILI9341_objectPixel::~GeeGrow_ILI9341_objectPixel(){
@@ -41,7 +41,7 @@ GeeGrow_ILI9341_objectPixel::~GeeGrow_ILI9341_objectPixel(){
 
 /**************************************************************************/
 /*!
-    @brief  Shows the object on the screen
+    @brief    Shows the object on the screen
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectPixel::appear(){
@@ -50,7 +50,7 @@ void GeeGrow_ILI9341_objectPixel::appear(){
 
 /**************************************************************************/
 /*!
-    @brief  Hides the object on the screen
+    @brief    Hides the object on the screen
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectPixel::disappear(){
@@ -59,10 +59,10 @@ void GeeGrow_ILI9341_objectPixel::disappear(){
 
 /**************************************************************************/
 /*!
-    @brief  Set the object to certain place with certain properties
-    @param  _x0     X coordinate of pixel
-    @param  _y0     Y coordinate of pixel
-    @param  _color  Color of the object
+    @brief    Set the object to certain place with certain properties
+    @param    _x0     X coordinate of pixel
+    @param    _y0     Y coordinate of pixel
+    @param    _color  Color of the object
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectPixel::moveTo(
@@ -71,179 +71,179 @@ void GeeGrow_ILI9341_objectPixel::moveTo(
     uint16_t _color
 ){
     this->disappear();
-	if (this->partner->drawPixel(_x0, _y0, _color)){
-		this->appear();
-		return;
-	}
-	this->x0 = _x0;
-	this->y0 = _y0;
-	this->color = _color;
+    if (this->partner->drawPixel(_x0, _y0, _color)){
+        this->appear();
+        return;
+    }
+    this->x0 = _x0;
+    this->y0 = _y0;
+    this->color = _color;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Move the object to the right on certain number of pixels
-    @param  _delta     Numbers of pixels to move the object
+    @brief    Move the object to the right on certain number of pixels
+    @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectPixel::moveRight(int16_t _delta){
     this->disappear();
-	if (this->partner->drawPixel(
+    if (this->partner->drawPixel(
             this->x0 + _delta,
             this->y0,
             this->color
         )
     ){
-		this->appear();
-		return;
-	}
-	this->x0 += _delta;
+        this->appear();
+        return;
+    }
+    this->x0 += _delta;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Move the object to the left on certain number of pixels
-    @param  _delta     Numbers of pixels to move the object
+    @brief    Move the object to the left on certain number of pixels
+    @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectPixel::moveLeft(int16_t _delta){
     this->disappear();
-	if (this->partner->drawPixel(
+    if (this->partner->drawPixel(
             this->x0 - _delta,
             this->y0,
             this->color
         )
     ){
-		this->appear();
-		return;
-	}
-	this->x0 -= _delta;
+        this->appear();
+        return;
+    }
+    this->x0 -= _delta;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Move the object up on certain number of pixels
-    @param  _delta     Numbers of pixels to move the object
+    @brief    Move the object up on certain number of pixels
+    @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectPixel::moveUp(int16_t _delta){
     this->disappear();
-	if (this->partner->drawPixel(
+    if (this->partner->drawPixel(
             this->x0,
             this->y0 - _delta,
             this->color
         )
     ){
-		this->appear();
-		return;
-	}
-	this->y0 -= _delta;
+        this->appear();
+        return;
+    }
+    this->y0 -= _delta;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Move the object down on certain number of pixels
-    @param  _delta     Numbers of pixels to move the object
+    @brief    Move the object down on certain number of pixels
+    @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectPixel::moveDown(int16_t _delta){
     this->disappear();
-	if (this->partner->drawPixel(
+    if (this->partner->drawPixel(
             this->x0,
             this->y0 + _delta,
             this->color
         )
     ){
-		this->appear();
-		return;
-	}
-	this->y0 += _delta;
+        this->appear();
+        return;
+    }
+    this->y0 += _delta;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Move the object up and to the right on certain number of pixels
-    @param  _delta_x     Numbers of pixels to move the object to the right
-    @param  _delta_y     Numbers of pixels to move the object up
+    @brief    Move the object up and to the right on certain number of pixels
+    @param    _delta_x    Numbers of pixels to move the object to the right
+    @param    _delta_y    Numbers of pixels to move the object up
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectPixel::moveRightUp(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
-	if (this->partner->drawPixel(
+    if (this->partner->drawPixel(
             this->x0 + _delta_x,
             this->y0 - _delta_y,
             this->color
         )
     ){
-		this->appear();
-		return;
-	}
+        this->appear();
+        return;
+    }
     this->x0 += _delta_x;
-	this->y0 -= _delta_y;
+    this->y0 -= _delta_y;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Move the object down and to the right on certain number of pixels
-    @param  _delta_x     Numbers of pixels to move the object to the right
-    @param  _delta_y     Numbers of pixels to move the object down
+    @brief    Move the object down and to the right on certain number of pixels
+    @param    _delta_x    Numbers of pixels to move the object to the right
+    @param    _delta_y    Numbers of pixels to move the object down
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectPixel::moveRightDown(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
-	if (this->partner->drawPixel(
+    if (this->partner->drawPixel(
             this->x0 + _delta_x,
             this->y0 + _delta_y,
             this->color
         )
     ){
-		this->appear();
-		return;
-	}
+        this->appear();
+        return;
+    }
     this->x0 += _delta_x;
-	this->y0 += _delta_y;
+    this->y0 += _delta_y;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Move the object up and to the left on certain number of pixels
-    @param  _delta_x     Numbers of pixels to move the object to the left
-    @param  _delta_y     Numbers of pixels to move the object up
+    @brief    Move the object up and to the left on certain number of pixels
+    @param    _delta_x    Numbers of pixels to move the object to the left
+    @param    _delta_y    Numbers of pixels to move the object up
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectPixel::moveLeftUp(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
-	if (this->partner->drawPixel(
+    if (this->partner->drawPixel(
             this->x0 - _delta_x,
             this->y0 - _delta_y,
             this->color
         )
     ){
-		this->appear();
-		return;
-	}
+        this->appear();
+        return;
+    }
     this->x0 -= _delta_x;
-	this->y0 -= _delta_y;
+    this->y0 -= _delta_y;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Move the object down and to the left on certain number of pixels
-    @param  _delta_x     Numbers of pixels to move the object to the left
-    @param  _delta_y     Numbers of pixels to move the object down
+    @brief    Move the object down and to the left on certain number of pixels
+    @param    _delta_x    Numbers of pixels to move the object to the left
+    @param    _delta_y    Numbers of pixels to move the object down
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectPixel::moveLeftDown(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
-	if (this->partner->drawPixel(
+    if (this->partner->drawPixel(
             this->x0 - _delta_x,
             this->y0 + _delta_y,
             this->color
         )
     ){
-		this->appear();
-		return;
-	}
+        this->appear();
+        return;
+    }
     this->x0 -= _delta_x;
-	this->y0 += _delta_y;
+    this->y0 += _delta_y;
 }

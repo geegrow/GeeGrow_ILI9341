@@ -20,7 +20,7 @@
 
 /**************************************************************************/
 /*!
-    @brief  Parent class that stores state and functions of object pixel
+    @brief    Parent class that stores state and functions of object pixel
 */
 /**************************************************************************/
 class GeeGrow_ILI9341_objectPixel : public GeeGrow_ILI9341_objectBase {
@@ -31,26 +31,26 @@ class GeeGrow_ILI9341_objectPixel : public GeeGrow_ILI9341_objectBase {
         );
         ~GeeGrow_ILI9341_objectPixel();
         void appear();
-		void disappear();
+        void disappear();
         void moveTo(
             int16_t _x0,
             int16_t _y0,
             uint16_t _color
         );
         void moveRight(int16_t _delta);
-		void moveLeft(int16_t _delta);
-		void moveUp(int16_t _delta);
-		void moveDown(int16_t _delta);
-		void moveRightUp(int16_t _delta_x, int16_t _delta_y);
-		void moveRightDown(int16_t _delta_x, int16_t _delta_y);
-		void moveLeftUp(int16_t _delta_x, int16_t _delta_y);
-		void moveLeftDown(int16_t _delta_x, int16_t _delta_y);
+        void moveLeft(int16_t _delta);
+        void moveUp(int16_t _delta);
+        void moveDown(int16_t _delta);
+        void moveRightUp(int16_t _delta_x, int16_t _delta_y);
+        void moveRightDown(int16_t _delta_x, int16_t _delta_y);
+        void moveLeftUp(int16_t _delta_x, int16_t _delta_y);
+        void moveLeftDown(int16_t _delta_x, int16_t _delta_y);
 
     private:
         int16_t x0 = 0;
-		int16_t y0 = 0;
-		uint16_t color = WHITE;
-		uint16_t color_bg = BLACK;
+        int16_t y0 = 0;
+        uint16_t color = WHITE;
+        uint16_t color_bg = BLACK;
 };
 
 #endif /* GEEGROW_ILI9341_OBJECT_PIXEL_H */

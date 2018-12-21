@@ -17,24 +17,24 @@
 
 /**************************************************************************/
 /*!
-    @brief  Instantiate a basic object
-	@param	_objectType	Type of object to create
-	@param	_partner	Pointer to class, which is a parent of main class and
-						allows to use drawing functions of main class
+    @brief    Instantiate a basic object
+    @param    _objectType   Type of object to create
+    @param    _partner      Pointer to class, which is a parent of main class and
+                            allows to use drawing functions of main class
 */
 /**************************************************************************/
 GeeGrow_ILI9341_objectBase::GeeGrow_ILI9341_objectBase(
-	uint8_t _objectType,
-	GeeGrow_ILI9341_partnership* _partner
+    uint8_t _objectType,
+    GeeGrow_ILI9341_partnership* _partner
 ){
-	this->objectType = _objectType;
-	this->partner = _partner;
+    this->objectType = _objectType;
+    this->partner = _partner;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Get X coordinate of the object
-	@return	X coordinate of top left corner of the object
+    @brief    Get X coordinate of the object
+    @return   X coordinate of top left corner of the object
 */
 /**************************************************************************/
 int16_t GeeGrow_ILI9341_objectBase::getX0(){
@@ -43,8 +43,8 @@ int16_t GeeGrow_ILI9341_objectBase::getX0(){
 
 /**************************************************************************/
 /*!
-    @brief  Get Y coordinate of the object
-	@return	Y coordinate of top left corner of the object
+    @brief    Get Y coordinate of the object
+    @return   Y coordinate of top left corner of the object
 */
 /**************************************************************************/
 int16_t GeeGrow_ILI9341_objectBase::getY0(){
@@ -53,8 +53,8 @@ int16_t GeeGrow_ILI9341_objectBase::getY0(){
 
 /**************************************************************************/
 /*!
-    @brief  Get current color of the object
-	@return	Color of the object
+    @brief    Get current color of the object
+    @return   Color of the object
 */
 /**************************************************************************/
 uint16_t GeeGrow_ILI9341_objectBase::getColor(){
@@ -63,8 +63,8 @@ uint16_t GeeGrow_ILI9341_objectBase::getColor(){
 
 /**************************************************************************/
 /*!
-    @brief  Get current background color of the object
-	@return	Color, which is set to fill space after the object, when it moves
+    @brief    Get current background color of the object
+    @return   Color, which is set to fill space after the object, when it moves
 */
 /**************************************************************************/
 uint16_t GeeGrow_ILI9341_objectBase::getColorBG(){
@@ -73,20 +73,20 @@ uint16_t GeeGrow_ILI9341_objectBase::getColorBG(){
 
 /**************************************************************************/
 /*!
-    @brief  Set color of the object
-	@param	_color	Color of the object
+    @brief    Set color of the object
+    @param    _color    Color of the object
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectBase::setColor(uint16_t _color){
-	this->disappear();
+    this->disappear();
     this->color = _color;
-	this->appear();
+    this->appear();
 }
 
 /**************************************************************************/
 /*!
-    @brief  Set background color of the object
-	@param	_color	Background color of the object
+    @brief    Set background color of the object
+    @param    _color    Background color of the object
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectBase::setColorBG(uint16_t _color){

@@ -17,10 +17,10 @@
 
 /**************************************************************************/
 /*!
-    @brief  Instantiate a circle object
-	@param	_objectType	Type of object to create
-	@param	_partner	Pointer to class, which is a parent of main class and
-						allows to use drawing functions of main class
+    @brief    Instantiate a circle object
+    @param    _objectType    Type of object to create
+    @param    _partner       Pointer to class, which is a parent of main class and
+                             allows to use drawing functions of main class
 */
 /**************************************************************************/
 GeeGrow_ILI9341_objectCircle::GeeGrow_ILI9341_objectCircle(
@@ -32,7 +32,7 @@ GeeGrow_ILI9341_objectCircle::GeeGrow_ILI9341_objectCircle(
 
 /**************************************************************************/
 /*!
-    @brief  Destruct the object
+    @brief    Destruct the object
 */
 /**************************************************************************/
 GeeGrow_ILI9341_objectCircle::~GeeGrow_ILI9341_objectCircle(){
@@ -41,7 +41,7 @@ GeeGrow_ILI9341_objectCircle::~GeeGrow_ILI9341_objectCircle(){
 
 /**************************************************************************/
 /*!
-    @brief  Shows the object on the screen
+    @brief    Shows the object on the screen
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectCircle::appear(){
@@ -55,7 +55,7 @@ void GeeGrow_ILI9341_objectCircle::appear(){
 
 /**************************************************************************/
 /*!
-    @brief  Hides the object on the screen
+    @brief    Hides the object on the screen
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectCircle::disappear(){
@@ -69,11 +69,11 @@ void GeeGrow_ILI9341_objectCircle::disappear(){
 
 /**************************************************************************/
 /*!
-    @brief  Set the circle object to certain place with certain properties
-    @param  _x0     X coordinate of center
-    @param  _y0     Y coordinate of center
-    @param  _radius Radius of circle object
-    @param  _color  Color of circle object
+    @brief    Set the circle object to certain place with certain properties
+    @param    _x0       X coordinate of center
+    @param    _y0       Y coordinate of center
+    @param    _radius   Radius of circle object
+    @param    _color    Color of circle object
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectCircle::moveTo(
@@ -83,26 +83,26 @@ void GeeGrow_ILI9341_objectCircle::moveTo(
     uint16_t _color
 ){
     this->disappear();
-	if (this->partner->drawCircle(_x0, _y0, _radius, _color)){
+    if (this->partner->drawCircle(_x0, _y0, _radius, _color)){
         // Error
-		this->appear();
-		return;
-	}
-	this->x0 = _x0;
-	this->y0 = _y0;
+        this->appear();
+        return;
+    }
+    this->x0 = _x0;
+    this->y0 = _y0;
     this->radius = _radius;
-	this->color = _color;
+    this->color = _color;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Move the object to the right on certain number of pixels
-    @param  _delta     Numbers of pixels to move the object
+    @brief    Move the object to the right on certain number of pixels
+    @param    _delta     Numbers of pixels to move the object
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectCircle::moveRight(int16_t _delta){
     this->disappear();
-	if (this->partner->drawCircle(
+    if (this->partner->drawCircle(
             this->x0 + _delta,
             this->y0,
             this->radius,
@@ -110,21 +110,21 @@ void GeeGrow_ILI9341_objectCircle::moveRight(int16_t _delta){
         )
     ){
         // Error
-		this->appear();
-		return;
-	}
-	this->x0 += _delta;
+        this->appear();
+        return;
+    }
+    this->x0 += _delta;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Move the object to the left on certain number of pixels
-    @param  _delta     Numbers of pixels to move the object
+    @brief    Move the object to the left on certain number of pixels
+    @param    _delta     Numbers of pixels to move the object
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectCircle::moveLeft(int16_t _delta){
     this->disappear();
-	if (this->partner->drawCircle(
+    if (this->partner->drawCircle(
             this->x0 - _delta,
             this->y0,
             this->radius,
@@ -132,21 +132,21 @@ void GeeGrow_ILI9341_objectCircle::moveLeft(int16_t _delta){
         )
     ){
         // Error
-		this->appear();
-		return;
-	}
-	this->x0 -= _delta;
+        this->appear();
+        return;
+    }
+    this->x0 -= _delta;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Move the object up on certain number of pixels
-    @param  _delta     Numbers of pixels to move the object
+    @brief    Move the object up on certain number of pixels
+    @param    _delta     Numbers of pixels to move the object
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectCircle::moveUp(int16_t _delta){
     this->disappear();
-	if (this->partner->drawCircle(
+    if (this->partner->drawCircle(
             this->x0,
             this->y0 - _delta,
             this->radius,
@@ -154,21 +154,21 @@ void GeeGrow_ILI9341_objectCircle::moveUp(int16_t _delta){
         )
     ){
         // Error
-		this->appear();
-		return;
-	}
-	this->y0 -= _delta;
+        this->appear();
+        return;
+    }
+    this->y0 -= _delta;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Move the object down on certain number of pixels
-    @param  _delta     Numbers of pixels to move the object
+    @brief    Move the object down on certain number of pixels
+    @param    _delta     Numbers of pixels to move the object
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectCircle::moveDown(int16_t _delta){
     this->disappear();
-	if (this->partner->drawCircle(
+    if (this->partner->drawCircle(
             this->x0,
             this->y0 + _delta,
             this->radius,
@@ -176,22 +176,22 @@ void GeeGrow_ILI9341_objectCircle::moveDown(int16_t _delta){
         )
     ){
         // Error
-		this->appear();
-		return;
-	}
-	this->y0 += _delta;
+        this->appear();
+        return;
+    }
+    this->y0 += _delta;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Move the object up and to the right on certain number of pixels
-    @param  _delta_x     Numbers of pixels to move the object to the right
-    @param  _delta_y     Numbers of pixels to move the object up
+    @brief    Move the object up and to the right on certain number of pixels
+    @param    _delta_x     Numbers of pixels to move the object to the right
+    @param    _delta_y     Numbers of pixels to move the object up
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectCircle::moveRightUp(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
-	if (this->partner->drawCircle(
+    if (this->partner->drawCircle(
             this->x0 + _delta_x,
             this->y0 - _delta_y,
             this->radius,
@@ -199,23 +199,23 @@ void GeeGrow_ILI9341_objectCircle::moveRightUp(int16_t _delta_x, int16_t _delta_
         )
     ){
         // Error
-		this->appear();
-		return;
-	}
+        this->appear();
+        return;
+    }
     this->x0 += _delta_x;
-	this->y0 -= _delta_y;
+    this->y0 -= _delta_y;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Move the object down and to the right on certain number of pixels
-    @param  _delta_x     Numbers of pixels to move the object to the right
-    @param  _delta_y     Numbers of pixels to move the object down
+    @brief    Move the object down and to the right on certain number of pixels
+    @param    _delta_x     Numbers of pixels to move the object to the right
+    @param    _delta_y     Numbers of pixels to move the object down
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectCircle::moveRightDown(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
-	if (this->partner->drawCircle(
+    if (this->partner->drawCircle(
             this->x0 + _delta_x,
             this->y0 + _delta_y,
             this->radius,
@@ -223,23 +223,23 @@ void GeeGrow_ILI9341_objectCircle::moveRightDown(int16_t _delta_x, int16_t _delt
         )
     ){
         // Error
-		this->appear();
-		return;
-	}
+        this->appear();
+        return;
+    }
     this->x0 += _delta_x;
-	this->y0 += _delta_y;
+    this->y0 += _delta_y;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Move the object up and to the left on certain number of pixels
-    @param  _delta_x     Numbers of pixels to move the object to the left
-    @param  _delta_y     Numbers of pixels to move the object up
+    @brief    Move the object up and to the left on certain number of pixels
+    @param    _delta_x     Numbers of pixels to move the object to the left
+    @param    _delta_y     Numbers of pixels to move the object up
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectCircle::moveLeftUp(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
-	if (this->partner->drawCircle(
+    if (this->partner->drawCircle(
             this->x0 - _delta_x,
             this->y0 - _delta_y,
             this->radius,
@@ -247,23 +247,23 @@ void GeeGrow_ILI9341_objectCircle::moveLeftUp(int16_t _delta_x, int16_t _delta_y
         )
     ){
         // Error
-		this->appear();
-		return;
-	}
+        this->appear();
+        return;
+    }
     this->x0 -= _delta_x;
-	this->y0 -= _delta_y;
+    this->y0 -= _delta_y;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Move the object down and to the left on certain number of pixels
-    @param  _delta_x     Numbers of pixels to move the object to the left
-    @param  _delta_y     Numbers of pixels to move the object down
+    @brief    Move the object down and to the left on certain number of pixels
+    @param    _delta_x     Numbers of pixels to move the object to the left
+    @param    _delta_y     Numbers of pixels to move the object down
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectCircle::moveLeftDown(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
-	if (this->partner->drawCircle(
+    if (this->partner->drawCircle(
             this->x0 - _delta_x,
             this->y0 + _delta_y,
             this->radius,
@@ -271,17 +271,17 @@ void GeeGrow_ILI9341_objectCircle::moveLeftDown(int16_t _delta_x, int16_t _delta
         )
     ){
         // Error
-		this->appear();
-		return;
-	}
+        this->appear();
+        return;
+    }
     this->x0 -= _delta_x;
-	this->y0 += _delta_y;
+    this->y0 += _delta_y;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Get current radius of circle object
-    @return Radius of circle object
+    @brief    Get current radius of circle object
+    @return   Radius of circle object
 */
 /**************************************************************************/
 int16_t GeeGrow_ILI9341_objectCircle::getRadius(){
@@ -290,13 +290,13 @@ int16_t GeeGrow_ILI9341_objectCircle::getRadius(){
 
 /**************************************************************************/
 /*!
-    @brief  Set radius of circle object
-    @param  _radius Radius of circle object
+    @brief    Set radius of circle object
+    @param    _radius   Radius of circle object
 */
 /**************************************************************************/
 void GeeGrow_ILI9341_objectCircle::setRadius(int16_t _radius){
     this->disappear();
-	if (this->partner->drawCircle(
+    if (this->partner->drawCircle(
             this->x0,
             this->y0,
             _radius,
@@ -304,8 +304,8 @@ void GeeGrow_ILI9341_objectCircle::setRadius(int16_t _radius){
         )
     ){
         // Error
-		this->appear();
-		return;
-	}
-	this->radius = _radius;
+        this->appear();
+        return;
+    }
+    this->radius = _radius;
 }

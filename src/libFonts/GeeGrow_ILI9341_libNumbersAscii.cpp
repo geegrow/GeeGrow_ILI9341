@@ -17,19 +17,19 @@
 
 /**************************************************************************/
 /*!
-    @brief  Get a bitmap of certain symbol
-	@param	_char	Requested symbol
-	@return	Pointer to bitmap array
+    @brief    Get a bitmap of certain symbol
+    @param    _char    Requested symbol
+    @return   Pointer to bitmap array
 */
 /**************************************************************************/
 uint16_t* GeeGrow_ILI9341_libNumbersAscii::getBitMap(char _char){
-	uint16_t idx = 0;
-	if ((uint8_t)_char >= 48 && (uint8_t)_char <= 57)
-		idx = ((uint8_t)_char - 48) * FONT_WIDTH;
-	else {
-		Serial.print(F("getBitMap(): char not supported: "));
-		Serial.println((uint8_t)_char, DEC);
-		return;
-	}
-	return (fontLibNumbersAscii + idx);
+    uint16_t idx = 0;
+    if ((uint8_t)_char >= 48 && (uint8_t)_char <= 57)
+        idx = ((uint8_t)_char - 48) * FONT_WIDTH;
+    else {
+        Serial.print(F("getBitMap(): char not supported: "));
+        Serial.println((uint8_t)_char, DEC);
+        return;
+    }
+    return (fontLibNumbersAscii + idx);
 }
