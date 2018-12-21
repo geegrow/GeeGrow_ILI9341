@@ -11,7 +11,7 @@ For more information you can visit https://github.com/geegrow/GeeGrow_ILI9341
 
 --------------------------------------------------------------------
 
-"                                   " <--   This is a place for very motivating
+"___________________________________" <--   This is a place for very motivating
                                             and enthusiastic slogan!
 
 Please visit our store https://geegrow.ru and check out for some cool stuff!
