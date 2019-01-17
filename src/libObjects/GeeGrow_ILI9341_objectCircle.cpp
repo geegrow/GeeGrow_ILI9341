@@ -85,6 +85,7 @@ void GeeGrow_ILI9341_objectCircle::moveTo(
     this->disappear();
     if (this->partner->drawCircle(_x0, _y0, _radius, _color)){
         // Error
+        Serial.println("Error");
         this->appear();
         return;
     }

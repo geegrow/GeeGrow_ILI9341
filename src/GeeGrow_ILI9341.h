@@ -72,6 +72,7 @@ class GeeGrow_ILI9341 : public GeeGrow_ILI9341_partnership {
         int8_t drawCircle(int16_t _x0, int16_t _y0, int16_t _radius, uint16_t _color);
         int8_t fillCircle(int16_t _x0, int16_t _y0, int16_t _radius, uint16_t _color);
         int8_t drawLine(int16_t _x0, int16_t _y0, int16_t _x1, int16_t _y1, uint16_t _color);
+        int8_t drawBrokenLine(uint16_t _vertexNum, int16_t *_vertex, uint16_t _color);
         int8_t drawTriangle(
             int16_t _x0,
             int16_t _y0,
@@ -93,9 +94,10 @@ class GeeGrow_ILI9341 : public GeeGrow_ILI9341_partnership {
         GeeGrow_ILI9341_objectBase* createFillCircleObj();
         GeeGrow_ILI9341_objectBase* createTriangleObj();
 
-    private:
+    protected:
         int16_t castX(int16_t _x0, int16_t _y0);
         int16_t castY(int16_t _x0, int16_t _y0);
+        void writeMemoryBuf(uint32_t _num, uint16_t *_buf);
         void castSelectedRange(int16_t _x0, int16_t _y0, int16_t _x1, int16_t _y1);
         void setColumn(int16_t _start, int16_t _end);
         void setPage(int16_t _start, int16_t _end);
@@ -103,7 +105,6 @@ class GeeGrow_ILI9341 : public GeeGrow_ILI9341_partnership {
         void sendSpiData(uint8_t _data);
         void sendSpiData16(uint16_t _data);
         void writeMemory(uint32_t _num, uint16_t _color);
-        void writeMemoryBuf(uint32_t _num, uint16_t *_buf);
         void OnSettingsForBMP();
         void OffSettingsForBMP();
         void castSelectedRangeForBMP(

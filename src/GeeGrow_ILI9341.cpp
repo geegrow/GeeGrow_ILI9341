@@ -14,6 +14,8 @@
 
 #include "GeeGrow_ILI9341.h"
 
+#define NOT_STRICT_DRAWING
+
 /**************************************************************************/
 /*!
     @brief    Instantiate GeeGrow SSD1306 driver for 128x32 display
@@ -219,11 +221,13 @@ void GeeGrow_ILI9341::setPage(int16_t _start, int16_t _end){
 int8_t GeeGrow_ILI9341::drawPixel(int16_t _x0, int16_t _y0, uint16_t _color){
     int16_t w = this->params.width;
     int16_t h = this->params.height;
-    // check coordinates
-    if ( (_x0 < 0) || (_y0 < 0) || (_x0 >= w) || (_y0 >= h) ) {
-        Serial.println(F("drawPixel():  invalid coordinates"));
-        return -1;
-    }
+    #ifndef NOT_STRICT_DRAWING
+        // check coordinates
+        if ( (_x0 < 0) || (_y0 < 0) || (_x0 >= w) || (_y0 >= h) ) {
+            Serial.println(F("drawPixel():  invalid coordinates"));
+            return -1;
+        }
+    #endif /* NOT_STRICT_DRAWING */
 
     int16_t xt = this->castX(_x0, _y0);
     int16_t yt = this->castY(_x0, _y0);
@@ -590,14 +594,16 @@ int8_t GeeGrow_ILI9341::fillRect(
 int8_t GeeGrow_ILI9341::drawCircle(int16_t _x0, int16_t _y0, int16_t _radius, uint16_t _color){
     int16_t w = this->params.width;
     int16_t h = this->params.height;
-    // Check coordinates
-    if ((_x0 < 0) || (_y0 < 0) || (_x0 - _radius < 0) || (_y0 - _radius < 0) ||
-        (_x0 + _radius >= w) || (_y0 + _radius >= h)
-    ){
+    #ifndef NOT_STRICT_DRAWING
+        // Check coordinates
+        if ((_x0 < 0) || (_y0 < 0) || (_x0 - _radius < 0) || (_y0 - _radius < 0) ||
+            (_x0 + _radius >= w) || (_y0 + _radius >= h)
+        ){
 
-        Serial.println(F("drawCircle(): invalid coordinates"));
-        return -1;
-    }
+            Serial.println(F("drawCircle(): invalid coordinates"));
+            return -1;
+        }
+    #endif /* NOT_STRICT_DRAWING */
 
     int16_t x = -_radius;
     int16_t y = 0;
@@ -633,22 +639,29 @@ int8_t GeeGrow_ILI9341::drawCircle(int16_t _x0, int16_t _y0, int16_t _radius, ui
 int8_t GeeGrow_ILI9341::fillCircle(int16_t _x0, int16_t _y0, int16_t _radius, uint16_t _color){
     int16_t w = this->params.width;
     int16_t h = this->params.height;
-    // Check coordinates
-    if ((_x0 < 0) || (_y0 < 0) || (_x0 - _radius < 0) || (_y0 - _radius < 0) ||
-        (_x0 + _radius >= w) || (_y0 + _radius >= h)
-    ){
+    #ifndef NOT_STRICT_DRAWING
+        // Check coordinates
+        if ((_x0 < 0) || (_y0 < 0) || (_x0 - _radius < 0) || (_y0 - _radius < 0) ||
+            (_x0 + _radius >= w) || (_y0 + _radius >= h)
+        ){
 
-        Serial.println(F("fillCircle(): invalid coordinates"));
-        return -1;
-    }
+            Serial.println(F("fillCircle(): invalid coordinates"));
+            return -1;
+        }
+    #endif /* NOT_STRICT_DRAWING */
 
     int16_t x = -_radius;
     int16_t y = 0;
     int16_t err = 2 - 2*_radius;
     int16_t e2;
     do {
-        this->drawFastVLine(_x0 - x, _y0 - y, 2*y, _color);
-        this->drawFastVLine(_x0 + x, _y0 - y, 2*y, _color);
+        #ifndef NOT_STRICT_DRAWING
+            this->drawFastVLine(_x0 - x, _y0 - y, 2*y, _color);
+            this->drawFastVLine(_x0 + x, _y0 - y, 2*y, _color);
+        #else
+            this->drawLine(_x0 - x, _y0 - y, _x0 - x, _y0 - y + 2*y, _color);
+            this->drawLine(_x0 + x, _y0 - y, _x0 + x, _y0 - y + 2*y, _color);
+        #endif /* NOT_STRICT_DRAWING */
         e2 = err;
         if (e2 <= y) {
             err += ++y * 2 + 1;
@@ -675,25 +688,26 @@ int8_t GeeGrow_ILI9341::fillCircle(int16_t _x0, int16_t _y0, int16_t _radius, ui
 int8_t GeeGrow_ILI9341::drawLine(int16_t _x0, int16_t _y0, int16_t _x1, int16_t _y1, uint16_t _color){
     int16_t w = this->params.width;
     int16_t h = this->params.height;
-    // Check coordinates
-    if ((_x0 < 0) || (_y0 < 0) || (_x1 < 0) || (_y1 < 0) ||
-        (_x0 >= w) || (_x1 >= w) ||
-        (_y0 >= h) || (_y1 >= h)
-    ){
+    #ifndef NOT_STRICT_DRAWING
+        // Check coordinates
+        if ((_x0 < 0) || (_y0 < 0) || (_x1 < 0) || (_y1 < 0) ||
+            (_x0 >= w) || (_x1 >= w) ||
+            (_y0 >= h) || (_y1 >= h)
+        ){
+            Serial.println(F("drawLine(): invalid coordinates"));
+            return -1;
+        }
 
-        Serial.println(F("drawLine(): invalid coordinates"));
-        return -1;
-    }
+        if (_x0 == _x1) {
+            this->drawFastVLine(_x0, _y0, _y1 - _y0, _color);
+            return 0;
+        }
 
-    if (_x0 == _x1) {
-        this->drawFastVLine(_x0, _y0, _y1 - _y0, _color);
-        return 0;
-    }
-
-    if (_y0 == _y1) {
-        this->drawFastHLine(_x0, _y0, _x1 - _x0, _color);
-        return 0;
-    }
+        if (_y0 == _y1) {
+            this->drawFastHLine(_x0, _y0, _x1 - _x0, _color);
+            return 0;
+        }
+    #endif /* NOT_STRICT_DRAWING */
 
     int16_t x = _x1 - _x0;
     int16_t y = _y1 - _y0;
@@ -758,6 +772,33 @@ int8_t GeeGrow_ILI9341::drawTriangle(
     this->drawLine(_x0, _y0, _x1, _y1, _color);
     this->drawLine(_x0, _y0, _x2, _y2, _color);
     this->drawLine(_x1, _y1, _x2, _y2, _color);
+    return 0;
+}
+
+/**************************************************************************/
+/*!
+    @brief    Draw a broken line with user defined peaks
+    @param    _vertexNum    Quantity of peaks
+    @param    _vertex       Pointer to array of user defined peaks
+    @params   _color        Color of line
+    @return   Status byte
+*/
+/**************************************************************************/
+int8_t GeeGrow_ILI9341::drawBrokenLine(uint16_t _vertexNum, int16_t *_vertex, uint16_t _color){
+    if (_vertexNum < 2){
+        Serial.println(F("drawBrokenLine(): at least 2 peaks needed"));
+        return -1;
+    }
+
+    for (uint16_t i = 0; i < _vertexNum - 1; i++){
+        this->drawLine(
+            *(_vertex + i*2),
+            *(_vertex + i*2 + 1),
+            *(_vertex + i*2 + 2),
+            *(_vertex + i*2 + 3),
+            _color
+        );
+    }
     return 0;
 }
 
