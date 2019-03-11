@@ -14,6 +14,7 @@
 
 #include "GeeGrow_ILI9341.h"
 
+// If defined, non-serious coordinate errors will be ignored
 #define NOT_STRICT_DRAWING
 
 /**************************************************************************/
@@ -215,7 +216,7 @@ void GeeGrow_ILI9341::setPage(int16_t _start, int16_t _end){
     @param    _x0        X coordinate of pixel
     @param    _y0        Y coordinate of pixel
     @param    _color     Color of pixel to draw
-    @return   Status byte
+    @return   Status byte. 0 if success, -1 if not.
 */
 /**************************************************************************/
 int8_t GeeGrow_ILI9341::drawPixel(int16_t _x0, int16_t _y0, uint16_t _color){
@@ -224,7 +225,6 @@ int8_t GeeGrow_ILI9341::drawPixel(int16_t _x0, int16_t _y0, uint16_t _color){
     #ifndef NOT_STRICT_DRAWING
         // check coordinates
         if ( (_x0 < 0) || (_y0 < 0) || (_x0 >= w) || (_y0 >= h) ) {
-            Serial.println(F("drawPixel():  invalid coordinates"));
             return -1;
         }
     #endif /* NOT_STRICT_DRAWING */
@@ -322,37 +322,29 @@ void GeeGrow_ILI9341::attachLibs(uint8_t _libs){
     if (_libs & LIB_LETTERS_ASCII){
         if (this->libLettersAscii == nullptr)
             this->libLettersAscii = new GeeGrow_ILI9341_libLettersAscii();
-        else
-            Serial.println(F("attachLibs(): LIB_LETTERS_ASCII already set"));
     }
 
     if (_libs & LIB_NUMBERS_ASCII){
         if (this->libNumbersAscii == nullptr)
             this->libNumbersAscii = new GeeGrow_ILI9341_libNumbersAscii();
-        else
-            Serial.println(F("attachLibs(): LIB_NUMBERS_ASCII already set"));
     }
 
     if (_libs & LIB_SYMBOLS_ASCII){
         if (this->libSymbolsAscii == nullptr)
             this->libSymbolsAscii = new GeeGrow_ILI9341_libSymbolsAscii();
-        else
-            Serial.println(F("attachLibs(): LIB_SYMBOLS_ASCII already set"));
     }
 
     if (_libs & LIB_LETTERS_CYRILLIC){
         if (this->libLettersCyrillic == nullptr){
             this->libLettersCyrillic = new GeeGrow_ILI9341_libLettersCyrillic();
             this->encoding = ENCODING_UTF8;
-        } else
-            Serial.println(F("attachLibs(): LIB_LETTERS_CYRILLIC already set"));
+        }
     }
 
     if (_libs & LIB_DEVICE_SD){
         if (this->deviceSD == nullptr){
             this->deviceSD = new GeeGrow_ILI9341_deviceSD();
-        } else
-            Serial.println(F("attachLibs(): LIB_DEVICE_SD already set"));
+        }
     }
 }
 
@@ -360,27 +352,27 @@ void GeeGrow_ILI9341::attachLibs(uint8_t _libs){
 /*!
     @brief    Set rotation mode
     @param    _encoding    Value of encoding
+    @return   Status byte. 0 if success, -1 if not.
 */
 /**************************************************************************/
-void GeeGrow_ILI9341::setEncoding(uint8_t _encoding){
-    if (this->libLettersCyrillic == nullptr) {
-        Serial.println(F("setEncoding(): LIB_LETTERS_CYRILLIC not set"));
-        return;
-    }
+int8_t GeeGrow_ILI9341::setEncoding(uint8_t _encoding){
+    if (this->libLettersCyrillic == nullptr)
+        return -1;
+
     this->encoding = _encoding;
+    return 0;
 }
 
 /**************************************************************************/
 /*!
     @brief    Get current rotation mode
-    @return   Value of rotation mode
+    @return   Value of rotation mode, -1 if error.
 */
 /**************************************************************************/
 int8_t GeeGrow_ILI9341::getEncoding(){
-    if (this->libLettersCyrillic == nullptr) {
-        Serial.println(F("getEncoding(): LIB_LETTERS_CYRILLIC not set"));
+    if (this->libLettersCyrillic == nullptr)
         return -1;
-    }
+
     return this->encoding;
 }
 
@@ -478,18 +470,18 @@ void GeeGrow_ILI9341::castSelectedRange(int16_t _x0, int16_t _y0, int16_t _x1, i
     @param    _y0       Y coordinate of top point of line
     @param    _height   Height of line
     @param    _color    Color of line to draw
+    @return   Status byte. 0 if success, -1 if not.
 */
 /**************************************************************************/
-void GeeGrow_ILI9341::drawFastVLine(int16_t _x0, int16_t _y0, int16_t _height, uint16_t _color){
+int8_t GeeGrow_ILI9341::drawFastVLine(int16_t _x0, int16_t _y0, int16_t _height, uint16_t _color){
     int16_t h = this->params.height;
     // check coordinates
-    if ( (_x0 < 0) || (_y0 < 0) || ( (_y0 + _height) > h ) ) {
-        Serial.println(F("drawFastVLine(): invalid coordinates"));
-        return;
-    }
+    if ( (_x0 < 0) || (_y0 < 0) || ( (_y0 + _height) > h ) )
+        return -1;
 
     this->castSelectedRange(_x0, _y0, _x0, _y0 + _height - 1);
     this->writeMemory(_height, _color);
+    return 0;
 }
 
 /**************************************************************************/
@@ -499,18 +491,18 @@ void GeeGrow_ILI9341::drawFastVLine(int16_t _x0, int16_t _y0, int16_t _height, u
     @param    _y0       Y coordinate of left point of line
     @param    _width    Width of line
     @param    _color    Color of line to draw
+    @return   Status byte. 0 if success, -1 if not.
 */
 /**************************************************************************/
-void GeeGrow_ILI9341::drawFastHLine(int16_t _x0, int16_t _y0, int16_t _width, uint16_t _color){
+int8_t GeeGrow_ILI9341::drawFastHLine(int16_t _x0, int16_t _y0, int16_t _width, uint16_t _color){
     int16_t w = this->params.width;
     // check coordinates
-    if ( (_x0 < 0) || (_y0 < 0) || ( (_x0 + _width) > w ) ) {
-        Serial.println(F("drawFastHLine(): invalid coordinates"));
-        return;
-    }
+    if ( (_x0 < 0) || (_y0 < 0) || ( (_x0 + _width) > w ) )
+        return -1;
 
     this->castSelectedRange(_x0, _y0, _x0 + _width - 1, _y0);
     writeMemory(_width, _color);
+    return 0;
 }
 
 /**************************************************************************/
@@ -521,7 +513,7 @@ void GeeGrow_ILI9341::drawFastHLine(int16_t _x0, int16_t _y0, int16_t _width, ui
     @param    _width    Width of rectangle
     @param    _height   Height of rectangle
     @param    _color    Color of rectangle to draw
-    @return   Status byte
+    @return   Status byte. 0 if success, -1 if not.
 */
 /**************************************************************************/
 int8_t GeeGrow_ILI9341::drawRect(
@@ -534,10 +526,10 @@ int8_t GeeGrow_ILI9341::drawRect(
     int16_t w = this->params.width;
     int16_t h = this->params.height;
     // check coordinates
-    if  ((_x0 < 0) || (_y0 < 0) ||
-        ((_y0 + _height) >= h) || ((_x0 + _width) >= w)
+    if  ((_x0 < 0) || (_y0 < 0) 
+        || ((_y0 + _height) >= h)
+        || ((_x0 + _width) >= w)
     ){
-        Serial.println(F("drawRect(): invalid coordinates"));
         return -1;
     }
 
@@ -556,7 +548,7 @@ int8_t GeeGrow_ILI9341::drawRect(
     @param    _width    Width of rectangle
     @param    _height   Height of rectangle
     @param    _color    Color of rectangle to fill
-    @return   Status byte
+    @return   Status byte. 0 if success, -1 if not.
 */
 /**************************************************************************/
 int8_t GeeGrow_ILI9341::fillRect(
@@ -572,7 +564,6 @@ int8_t GeeGrow_ILI9341::fillRect(
     if  ((_x0 < 0) || (_y0 < 0) ||
         ((_y0 + _height) > h) || ((_x0 + _width) > w)
     ){
-        Serial.println(F("fillRect(): invalid coordinates"));
         return -1;
     }
 
@@ -588,7 +579,7 @@ int8_t GeeGrow_ILI9341::fillRect(
     @param    _y0       Y coordinate of center
     @param    _radius   Radius of circle
     @param    _color    Color of circle to draw
-    @return   Status byte
+    @return   Status byte. 0 if success, -1 if not.
 */
 /**************************************************************************/
 int8_t GeeGrow_ILI9341::drawCircle(int16_t _x0, int16_t _y0, int16_t _radius, uint16_t _color){
@@ -599,8 +590,6 @@ int8_t GeeGrow_ILI9341::drawCircle(int16_t _x0, int16_t _y0, int16_t _radius, ui
         if ((_x0 < 0) || (_y0 < 0) || (_x0 - _radius < 0) || (_y0 - _radius < 0) ||
             (_x0 + _radius >= w) || (_y0 + _radius >= h)
         ){
-
-            Serial.println(F("drawCircle(): invalid coordinates"));
             return -1;
         }
     #endif /* NOT_STRICT_DRAWING */
@@ -633,7 +622,7 @@ int8_t GeeGrow_ILI9341::drawCircle(int16_t _x0, int16_t _y0, int16_t _radius, ui
     @param    _y0       Y coordinate of center
     @param    _radius   Radius of circle
     @param    _color    Color of circle to fill
-    @return   Status byte
+    @return   Status byte. 0 if success, -1 if not.
 */
 /**************************************************************************/
 int8_t GeeGrow_ILI9341::fillCircle(int16_t _x0, int16_t _y0, int16_t _radius, uint16_t _color){
@@ -644,8 +633,6 @@ int8_t GeeGrow_ILI9341::fillCircle(int16_t _x0, int16_t _y0, int16_t _radius, ui
         if ((_x0 < 0) || (_y0 < 0) || (_x0 - _radius < 0) || (_y0 - _radius < 0) ||
             (_x0 + _radius >= w) || (_y0 + _radius >= h)
         ){
-
-            Serial.println(F("fillCircle(): invalid coordinates"));
             return -1;
         }
     #endif /* NOT_STRICT_DRAWING */
@@ -682,7 +669,7 @@ int8_t GeeGrow_ILI9341::fillCircle(int16_t _x0, int16_t _y0, int16_t _radius, ui
     @param    _x1       X coordinate of end point
     @param    _y1       Y coordinate of end point
     @param    _color    Color of line to draw
-    @return   Status byte
+    @return   Status byte. 0 if success, -1 if not.
 */
 /**************************************************************************/
 int8_t GeeGrow_ILI9341::drawLine(int16_t _x0, int16_t _y0, int16_t _x1, int16_t _y1, uint16_t _color){
@@ -694,7 +681,6 @@ int8_t GeeGrow_ILI9341::drawLine(int16_t _x0, int16_t _y0, int16_t _x1, int16_t 
             (_x0 >= w) || (_x1 >= w) ||
             (_y0 >= h) || (_y1 >= h)
         ){
-            Serial.println(F("drawLine(): invalid coordinates"));
             return -1;
         }
 
@@ -745,7 +731,7 @@ int8_t GeeGrow_ILI9341::drawLine(int16_t _x0, int16_t _y0, int16_t _x1, int16_t 
     @param    _x2       X coordinate of third point
     @param    _y2       Y coordinate of third point
     @param    _color    Color of triangle to draw
-    @return   Status byte
+    @return   Status byte. 0 if success, -1 if not.
 */
 /**************************************************************************/
 int8_t GeeGrow_ILI9341::drawTriangle(
@@ -764,8 +750,6 @@ int8_t GeeGrow_ILI9341::drawTriangle(
         (_x0 >= w) || (_x1 >= w) || (_x2 >= w) ||
         (_y0 >= h) || (_y1 >= h) || (_y2 >= h)
     ){
-
-        Serial.println(F("drawTriangle(): invalid coordinates"));
         return -1;
     }
 
@@ -781,12 +765,11 @@ int8_t GeeGrow_ILI9341::drawTriangle(
     @param    _vertexNum    Quantity of peaks
     @param    _vertex       Pointer to array of user defined peaks
     @params   _color        Color of line
-    @return   Status byte
+    @return   Status byte. 0 if success, -1 if not.
 */
 /**************************************************************************/
 int8_t GeeGrow_ILI9341::drawBrokenLine(uint16_t _vertexNum, int16_t *_vertex, uint16_t _color){
     if (_vertexNum < 2){
-        Serial.println(F("drawBrokenLine(): at least 2 peaks needed"));
         return -1;
     }
 
@@ -810,19 +793,18 @@ int8_t GeeGrow_ILI9341::drawBrokenLine(uint16_t _vertexNum, int16_t *_vertex, ui
     @param    _y0       Y coordinate of top left corner of the symbol
     @param    _size     Size of font
     @param    _color    Color of symbol to print
+    @return   Status byte. 0 if success, -1 if not.
     @note     Size of font 1 is equivalent to bitmap 8x16
 */
 /**************************************************************************/
-void GeeGrow_ILI9341::printChar(char _char, int16_t _x0, int16_t _y0, uint8_t _size, uint16_t _color){
+int8_t GeeGrow_ILI9341::printChar(char _char, int16_t _x0, int16_t _y0, uint8_t _size, uint16_t _color){
     int16_t w = this->params.width;
     int16_t h = this->params.height;
     // Check coordinates
     if ((_x0 < 0) || (_y0 < 0) ||
         (_x0 + _size * FONT_WIDTH >= w) || (_y0 + _size * FONT_HEIGHT >= h)
     ){
-
-        Serial.println(F("drawChar(): invalid coordinates"));
-        return;
+        return -1;
     }
 
     // Check symbol (what library to use)
@@ -831,10 +813,9 @@ void GeeGrow_ILI9341::printChar(char _char, int16_t _x0, int16_t _y0, uint8_t _s
 
     // NUMBERS_ASCII
     if ((t >= 48) && (t <= 57)) {
-        if (this->libNumbersAscii == nullptr){
-            Serial.println(F("drawChar(): LIB_NUMBERS_ASCII not set"));
-            return;
-        }
+        if (this->libNumbersAscii == nullptr)
+            return -1;
+
         tmp_buf = this->libNumbersAscii->getBitMap(_char);
     }
 
@@ -843,10 +824,9 @@ void GeeGrow_ILI9341::printChar(char _char, int16_t _x0, int16_t _y0, uint8_t _s
         ||     ((t >= 97) && (t <= 122))
     ){
 
-        if (this->libLettersAscii == nullptr){
-            Serial.println(F("drawChar(): LIB_LETTERS_ASCII not set"));
-            return;
-        }
+        if (this->libLettersAscii == nullptr)
+            return -1;
+
         tmp_buf = this->libLettersAscii->getBitMap(_char);
     }
 
@@ -857,34 +837,30 @@ void GeeGrow_ILI9341::printChar(char _char, int16_t _x0, int16_t _y0, uint8_t _s
         ||  ((t >= 123) && (t <= 126))
     ){
 
-        if (this->libSymbolsAscii == nullptr){
-            Serial.println(F("drawChar(): LIB_SYMBOLS_ASCII not set"));
-            return;
-        }
+        if (this->libSymbolsAscii == nullptr)
+            return -1;
+
         tmp_buf = this->libSymbolsAscii->getBitMap(_char);
     }
 
     // LETTERS_CYRILLIC
     else if ( (t >= 128) && (t <= 255) ) {
         if (this->libLettersCyrillic == nullptr) {
-            Serial.println(F("drawChar(): LIB_LETTERS_CYRILLIC not set"));
-            return;
+            return -1;
         } else {
             if ( ((t <= 191) && (this->encoding == ENCODING_UTF8))
               || ((t >= 192) && (this->encoding == ENCODING_CP1251))
             )
                 tmp_buf = this->libLettersCyrillic->getBitMap(_char, encoding);
             else {
-                Serial.println(F("drawChar(): encoding error"));
-                return;
+                return -1;
             }
         }
     }
 
     // unknown
     else {
-        Serial.println(F("drawChar(): unknown symbol"));
-        return;
+        return -1;
     }
 
     for (uint8_t i = 0; i < FONT_WIDTH; i++) {
@@ -893,6 +869,7 @@ void GeeGrow_ILI9341::printChar(char _char, int16_t _x0, int16_t _y0, uint8_t _s
             if (tmp_char & (1 << j))
                 this->fillRect(_x0 + i*_size, _y0 + j*_size, _size, _size, _color);
     }
+    return 0;
 }
 
 /**************************************************************************/
@@ -906,7 +883,7 @@ void GeeGrow_ILI9341::printChar(char _char, int16_t _x0, int16_t _y0, uint8_t _s
     @note     Size of font 1 is equivalent to bitmap 8x16
 */
 /**************************************************************************/
-void GeeGrow_ILI9341::printStr(String _str, int16_t _x0, int16_t _y0, uint8_t _size, uint16_t _color){
+void GeeGrow_ILI9341::printStr(String _str, int16_t _x0, int16_t _y0, uint8_t _size, uint16_t _color) {
     uint16_t n = _str.length();
     uint8_t missed_bytes = 0;
     // Divide string to separate symbols
@@ -1112,12 +1089,12 @@ GeeGrow_ILI9341_objectBase* GeeGrow_ILI9341::createTriangleObj(){
 */
 /**************************************************************************/
 int8_t GeeGrow_ILI9341::initSD(uint8_t _cs_sd){
-    if (this->deviceSD == nullptr) {
-        Serial.println(F("initSD(): LIB_DEVICE_SD not set"));
+    if (this->deviceSD == nullptr)
         return -1;
-    }
+
     if (this->deviceSD->init(_cs_sd))
         return -1;
+
     return 0;
 }
 
@@ -1127,15 +1104,13 @@ int8_t GeeGrow_ILI9341::initSD(uint8_t _cs_sd){
     @param    _x0       X coordinate of top left corner of the image
     @param    _y0       Y coordinate of top left corner of the image
     @param    _filename Full path to image on SD card
-    @return   Status byte
+    @return   Status byte. 0 if success, -1 if not.
     @note     Image MUST be .bmp with color depth 16 bit (R5, G6, B5)!
 */
 /**************************************************************************/
 int8_t GeeGrow_ILI9341::showBMPfromSD(int16_t _x0, int16_t _y0, char *_filename){
-    if (this->deviceSD == nullptr) {
-        Serial.println(F("showBMPfromSD(): LIB_DEVICE_SD not set"));
+    if (this->deviceSD == nullptr)
         return -1;
-    }
 
     this->deviceSD->setFileName(_filename);
     if (this->deviceSD->getReady())
@@ -1144,17 +1119,14 @@ int8_t GeeGrow_ILI9341::showBMPfromSD(int16_t _x0, int16_t _y0, char *_filename)
     if (_x0 + this->deviceSD->BITMAPINFOHEADER.biWidth > this->params.width
         || _y0 + this->deviceSD->BITMAPINFOHEADER.biHeight > this->params.height
     ){
-        Serial.println(F("showBMPfromSD(): invalid coordinates"));
         return -1;
     }
-    if (this->deviceSD->BITMAPFILEHEADER.bfType != 0x4D42){
-        Serial.println(F("showBMPfromSD(): image type not valid"));
+
+    if (this->deviceSD->BITMAPFILEHEADER.bfType != 0x4D42)
         return -1;
-    }
-    if (this->deviceSD->BITMAPINFOHEADER.biBitCount != 16){
-        Serial.println(F("showBMPfromSD(): color depth not valid"));
+
+    if (this->deviceSD->BITMAPINFOHEADER.biBitCount != 16)
         return -1;
-    }
 
     uint16_t blocks_num = this->deviceSD->BITMAPINFOHEADER.biHeight;
     uint16_t block_size_pixels = this->deviceSD->BITMAPINFOHEADER.biWidth;
@@ -1238,7 +1210,7 @@ void GeeGrow_ILI9341::castSelectedRangeForBMP(
     uint16_t _block_size_pixels,
     uint16_t _blocks_num,
     uint16_t _i
-){
+) {
     switch (this->params.rotation){
         case ROTATION_UP:
             this->castSelectedRange(

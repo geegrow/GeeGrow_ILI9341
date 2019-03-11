@@ -1,4 +1,7 @@
 #include "Game.h"
+
+/* Pinout is defined in Game.h file */
+
 Game *game;
 bool buttonLeftPressed = false;
 bool buttonRightPressed = false;

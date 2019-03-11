@@ -1,6 +1,8 @@
 #include "Wolf.h"
 #include "Setting.h"
 
+/* Pinout is defined in tools.h file */
+
 Wolf *wolf = nullptr;
 
 volatile bool left_up_pressed = false;

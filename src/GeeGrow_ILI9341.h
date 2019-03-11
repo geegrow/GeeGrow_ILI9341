@@ -51,10 +51,10 @@ class GeeGrow_ILI9341 : public GeeGrow_ILI9341_partnership {
         int16_t getWidth();
         int16_t getHeight();
         void attachLibs(uint8_t _libs);
-        void setEncoding(uint8_t _encoding);
+        int8_t setEncoding(uint8_t _encoding);
         int8_t getEncoding();
-        void drawFastVLine(int16_t _x0, int16_t _y0, int16_t _height, uint16_t _color);
-        void drawFastHLine(int16_t _x0, int16_t _y0, int16_t _width, uint16_t _color);
+        int8_t drawFastVLine(int16_t _x0, int16_t _y0, int16_t _height, uint16_t _color);
+        int8_t drawFastHLine(int16_t _x0, int16_t _y0, int16_t _width, uint16_t _color);
         int8_t drawRect(
             int16_t _x0,
             int16_t _y0,
@@ -82,7 +82,7 @@ class GeeGrow_ILI9341 : public GeeGrow_ILI9341_partnership {
             int16_t _y2,
             uint16_t _color
         );
-        void printChar(char _char, int16_t _x0, int16_t _y0, uint8_t _size, uint16_t _color);
+        int8_t printChar(char _char, int16_t _x0, int16_t _y0, uint8_t _size, uint16_t _color);
         void printStr(String _str, int16_t _x0, int16_t _y0, uint8_t _size, uint16_t _color);
         int8_t initSD(uint8_t _cs_sd);
         int8_t showBMPfromSD(int16_t _x0, int16_t _y0, char *_filename);
