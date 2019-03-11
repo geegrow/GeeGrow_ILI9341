@@ -4,11 +4,11 @@
 #include <GeeGrow_ILI9341.h>
 
 // Pinout display
-#define LED   12
-#define RESET 9
-#define DC    11
-#define WR    8
-#define CS    10
+#define LED   A0
+#define RESET A3
+#define DC    A1
+#define WR    A4
+#define CS    A2
 // Pinout buttons
 #define BUTTON_LEFT     3
 #define BUTTON_RIGHT    0
