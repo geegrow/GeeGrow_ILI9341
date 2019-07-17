@@ -13,7 +13,7 @@ class Egg : public TweakCallbackOwnerClass {
         void die();
         void tweakHandler();
 
-        GeeGrow_ILI9341_objectCircle *_obj = nullptr;
+        Geegrow_ILI9341_objectCircle *_obj = nullptr;
         bool isAlive = false;
         uint8_t currentSlide = 0;
 //        uint8_t stepTickCounter = 0;

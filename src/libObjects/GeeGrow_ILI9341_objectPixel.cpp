@@ -1,7 +1,7 @@
 /*!
- * @file GeeGrow_ILI9341_objectPixel.cpp
+ * @file Geegrow_ILI9341_objectPixel.cpp
  *
- * This is an addon library for the GeeGrow ILI9341 TFT 240x320 display,
+ * This is an addon library for the Geegrow ILI9341 TFT 240x320 display,
  * which implements opportunity to create object pixel
  * https://www.geegrow.ru
  *
@@ -13,7 +13,7 @@
  *
  */
 
-#include "GeeGrow_ILI9341_objectPixel.h"
+#include "Geegrow_ILI9341_objectPixel.h"
 
 /**************************************************************************/
 /*!
@@ -23,10 +23,10 @@
                              allows to use drawing functions of main class
 */
 /**************************************************************************/
-GeeGrow_ILI9341_objectPixel::GeeGrow_ILI9341_objectPixel(
+Geegrow_ILI9341_objectPixel::Geegrow_ILI9341_objectPixel(
     uint8_t _objectType,
-    GeeGrow_ILI9341_partnership* _partner
-) : GeeGrow_ILI9341_objectBase(_objectType, _partner){
+    Geegrow_ILI9341_partnership* _partner
+) : Geegrow_ILI9341_objectBase(_objectType, _partner){
 
 }
 
@@ -35,7 +35,7 @@ GeeGrow_ILI9341_objectPixel::GeeGrow_ILI9341_objectPixel(
     @brief    Destruct the object
 */
 /**************************************************************************/
-GeeGrow_ILI9341_objectPixel::~GeeGrow_ILI9341_objectPixel(){
+Geegrow_ILI9341_objectPixel::~Geegrow_ILI9341_objectPixel(){
     this->disappear();
 }
 
@@ -44,7 +44,7 @@ GeeGrow_ILI9341_objectPixel::~GeeGrow_ILI9341_objectPixel(){
     @brief    Shows the object on the screen
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectPixel::appear(){
+void Geegrow_ILI9341_objectPixel::appear(){
     this->partner->drawPixel(this->x0, this->y0, this->color);
 }
 
@@ -53,7 +53,7 @@ void GeeGrow_ILI9341_objectPixel::appear(){
     @brief    Hides the object on the screen
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectPixel::disappear(){
+void Geegrow_ILI9341_objectPixel::disappear(){
     this->partner->drawPixel(this->x0, this->y0, this->color_bg);
 }
 
@@ -65,7 +65,7 @@ void GeeGrow_ILI9341_objectPixel::disappear(){
     @param    _color  Color of the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectPixel::moveTo(
+void Geegrow_ILI9341_objectPixel::moveTo(
     int16_t _x0,
     int16_t _y0,
     uint16_t _color
@@ -86,7 +86,7 @@ void GeeGrow_ILI9341_objectPixel::moveTo(
     @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectPixel::moveRight(int16_t _delta){
+void Geegrow_ILI9341_objectPixel::moveRight(int16_t _delta){
     this->disappear();
     if (this->partner->drawPixel(
             this->x0 + _delta,
@@ -106,7 +106,7 @@ void GeeGrow_ILI9341_objectPixel::moveRight(int16_t _delta){
     @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectPixel::moveLeft(int16_t _delta){
+void Geegrow_ILI9341_objectPixel::moveLeft(int16_t _delta){
     this->disappear();
     if (this->partner->drawPixel(
             this->x0 - _delta,
@@ -126,7 +126,7 @@ void GeeGrow_ILI9341_objectPixel::moveLeft(int16_t _delta){
     @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectPixel::moveUp(int16_t _delta){
+void Geegrow_ILI9341_objectPixel::moveUp(int16_t _delta){
     this->disappear();
     if (this->partner->drawPixel(
             this->x0,
@@ -146,7 +146,7 @@ void GeeGrow_ILI9341_objectPixel::moveUp(int16_t _delta){
     @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectPixel::moveDown(int16_t _delta){
+void Geegrow_ILI9341_objectPixel::moveDown(int16_t _delta){
     this->disappear();
     if (this->partner->drawPixel(
             this->x0,
@@ -167,7 +167,7 @@ void GeeGrow_ILI9341_objectPixel::moveDown(int16_t _delta){
     @param    _delta_y    Numbers of pixels to move the object up
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectPixel::moveRightUp(int16_t _delta_x, int16_t _delta_y){
+void Geegrow_ILI9341_objectPixel::moveRightUp(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
     if (this->partner->drawPixel(
             this->x0 + _delta_x,
@@ -189,7 +189,7 @@ void GeeGrow_ILI9341_objectPixel::moveRightUp(int16_t _delta_x, int16_t _delta_y
     @param    _delta_y    Numbers of pixels to move the object down
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectPixel::moveRightDown(int16_t _delta_x, int16_t _delta_y){
+void Geegrow_ILI9341_objectPixel::moveRightDown(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
     if (this->partner->drawPixel(
             this->x0 + _delta_x,
@@ -211,7 +211,7 @@ void GeeGrow_ILI9341_objectPixel::moveRightDown(int16_t _delta_x, int16_t _delta
     @param    _delta_y    Numbers of pixels to move the object up
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectPixel::moveLeftUp(int16_t _delta_x, int16_t _delta_y){
+void Geegrow_ILI9341_objectPixel::moveLeftUp(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
     if (this->partner->drawPixel(
             this->x0 - _delta_x,
@@ -233,7 +233,7 @@ void GeeGrow_ILI9341_objectPixel::moveLeftUp(int16_t _delta_x, int16_t _delta_y)
     @param    _delta_y    Numbers of pixels to move the object down
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectPixel::moveLeftDown(int16_t _delta_x, int16_t _delta_y){
+void Geegrow_ILI9341_objectPixel::moveLeftDown(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
     if (this->partner->drawPixel(
             this->x0 - _delta_x,

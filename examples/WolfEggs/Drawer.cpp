@@ -1,6 +1,6 @@
 #include "Drawer.h"
 
-Drawer::Drawer() : GeeGrow_ILI9341() {
+Drawer::Drawer() : Geegrow_ILI9341() {
     // Display
     this->init(LED, RESET, DC, WR, CS);
     this->attachLibs(LIB_NUMBERS_ASCII | LIB_LETTERS_ASCII | LIB_SYMBOLS_ASCII);

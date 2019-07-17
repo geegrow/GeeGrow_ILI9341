@@ -1,7 +1,7 @@
 /*!
- * @file GeeGrow_ILI9341_tools.h
+ * @file Geegrow_ILI9341_tools.h
  *
- * These are auxiliary structs and defines for GeeGrow ILI9341 library
+ * These are auxiliary structs and defines for Geegrow ILI9341 library
  * https://www.geegrow.ru
  *
  * @section author Author
@@ -12,8 +12,8 @@
  *
  */
 
-#ifndef GEEGROW_ILI9341_TOOLS_H
-#define GEEGROW_ILI9341_TOOLS_H
+#ifndef Geegrow_ILI9341_TOOLS_H
+#define Geegrow_ILI9341_TOOLS_H
 
 #include <Arduino.h>
 
@@ -90,7 +90,7 @@ enum {  OBJ_PIXEL,
               object classes to use drawing functions of main class
 */
 /**************************************************************************/
-class GeeGrow_ILI9341_partnership {
+class Geegrow_ILI9341_partnership {
     public:
         virtual int8_t drawPixel(int16_t _x0, int16_t _y0, uint16_t _color) = 0;
         virtual int8_t drawLine(
@@ -138,4 +138,4 @@ class GeeGrow_ILI9341_partnership {
 };
 
 
-#endif /* GEEGROW_ILI9341_TOOLS_H */
+#endif /* Geegrow_ILI9341_TOOLS_H */

@@ -5,7 +5,7 @@ Game::Game(){
     pinMode(BUTTON_LEFT, INPUT);
     pinMode(BUTTON_RIGHT, INPUT);
     // Display
-    this->display._obj = new GeeGrow_ILI9341();
+    this->display._obj = new Geegrow_ILI9341();
     this->display._obj->init(LED, RESET, DC, WR, CS);
     this->display._obj->attachLibs(LIB_LETTERS_ASCII | LIB_NUMBERS_ASCII | LIB_SYMBOLS_ASCII);
     this->display._obj->fillDisplay(BLACK);
@@ -122,7 +122,7 @@ void Game::setInterface(uint16_t _color){
     );
 
     this->display._obj->printStr(
-        F("GeeGrow Gaming inc."),
+        F("Geegrow Gaming inc."),
         0,
         0,
         1,

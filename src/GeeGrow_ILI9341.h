@@ -1,7 +1,7 @@
 /*!
- * @file GeeGrow_ILI9341.h
+ * @file Geegrow_ILI9341.h
  *
- * This is a library for the GeeGrow ILI9341 TFT 240x320 display
+ * This is a library for the Geegrow ILI9341 TFT 240x320 display
  * https://www.geegrow.ru
  *
  * @section author Author
@@ -12,33 +12,33 @@
  *
  */
 
-#ifndef GEEGROW_ILI9341_H
-#define GEEGROW_ILI9341_H
+#ifndef Geegrow_ILI9341_H
+#define Geegrow_ILI9341_H
 
 #include <SPI.h>
-#include "GeeGrow_ILI9341_tools.h"
-#include "libFonts/GeeGrow_ILI9341_libLettersAscii.h"
-#include "libFonts/GeeGrow_ILI9341_libNumbersAscii.h"
-#include "libFonts/GeeGrow_ILI9341_libSymbolsAscii.h"
-#include "libFonts/GeeGrow_ILI9341_libLettersCyrillic.h"
-#include "libObjects/GeeGrow_ILI9341_objectPixel.h"
-#include "libObjects/GeeGrow_ILI9341_objectLine.h"
-#include "libObjects/GeeGrow_ILI9341_objectRect.h"
-#include "libObjects/GeeGrow_ILI9341_objectFillRect.h"
-#include "libObjects/GeeGrow_ILI9341_objectCircle.h"
-#include "libObjects/GeeGrow_ILI9341_objectFillCircle.h"
-#include "libObjects/GeeGrow_ILI9341_objectTriangle.h"
-#include "libDevices/GeeGrow_ILI9341_deviceSD.h"
+#include "Geegrow_ILI9341_tools.h"
+#include "libFonts/Geegrow_ILI9341_libLettersAscii.h"
+#include "libFonts/Geegrow_ILI9341_libNumbersAscii.h"
+#include "libFonts/Geegrow_ILI9341_libSymbolsAscii.h"
+#include "libFonts/Geegrow_ILI9341_libLettersCyrillic.h"
+#include "libObjects/Geegrow_ILI9341_objectPixel.h"
+#include "libObjects/Geegrow_ILI9341_objectLine.h"
+#include "libObjects/Geegrow_ILI9341_objectRect.h"
+#include "libObjects/Geegrow_ILI9341_objectFillRect.h"
+#include "libObjects/Geegrow_ILI9341_objectCircle.h"
+#include "libObjects/Geegrow_ILI9341_objectFillCircle.h"
+#include "libObjects/Geegrow_ILI9341_objectTriangle.h"
+#include "libDevices/Geegrow_ILI9341_deviceSD.h"
 
 /**************************************************************************/
 /*!
     @brief  Class that stores state and functions for interacting with ILI9341 display
 */
 /**************************************************************************/
-class GeeGrow_ILI9341 : public GeeGrow_ILI9341_partnership {
+class Geegrow_ILI9341 : public Geegrow_ILI9341_partnership {
     public:
-        GeeGrow_ILI9341();
-        ~GeeGrow_ILI9341(){}
+        Geegrow_ILI9341();
+        ~Geegrow_ILI9341(){}
         void init(uint8_t _led, uint8_t _reset, uint8_t _dc, uint8_t _wr, uint8_t _cs);
         void turnLedOn();
         void turnLedOff();
@@ -86,13 +86,13 @@ class GeeGrow_ILI9341 : public GeeGrow_ILI9341_partnership {
         void printStr(String _str, int16_t _x0, int16_t _y0, uint8_t _size, uint16_t _color);
         int8_t initSD(uint8_t _cs_sd);
         int8_t showBMPfromSD(int16_t _x0, int16_t _y0, char *_filename);
-        GeeGrow_ILI9341_objectBase* createPixelObj();
-        GeeGrow_ILI9341_objectBase* createLineObj();
-        GeeGrow_ILI9341_objectBase* createRectObj();
-        GeeGrow_ILI9341_objectBase* createFillRectObj();
-        GeeGrow_ILI9341_objectBase* createCircleObj();
-        GeeGrow_ILI9341_objectBase* createFillCircleObj();
-        GeeGrow_ILI9341_objectBase* createTriangleObj();
+        Geegrow_ILI9341_objectBase* createPixelObj();
+        Geegrow_ILI9341_objectBase* createLineObj();
+        Geegrow_ILI9341_objectBase* createRectObj();
+        Geegrow_ILI9341_objectBase* createFillRectObj();
+        Geegrow_ILI9341_objectBase* createCircleObj();
+        Geegrow_ILI9341_objectBase* createFillCircleObj();
+        Geegrow_ILI9341_objectBase* createTriangleObj();
 
     protected:
         int16_t castX(int16_t _x0, int16_t _y0);
@@ -117,11 +117,11 @@ class GeeGrow_ILI9341 : public GeeGrow_ILI9341_partnership {
         pins_t pins;
         params_t params;
         uint8_t encoding;
-        GeeGrow_ILI9341_libLettersAscii *libLettersAscii = nullptr;
-        GeeGrow_ILI9341_libNumbersAscii *libNumbersAscii = nullptr;
-        GeeGrow_ILI9341_libSymbolsAscii *libSymbolsAscii = nullptr;
-        GeeGrow_ILI9341_libLettersCyrillic *libLettersCyrillic = nullptr;
-        GeeGrow_ILI9341_deviceSD *deviceSD = nullptr;
+        Geegrow_ILI9341_libLettersAscii *libLettersAscii = nullptr;
+        Geegrow_ILI9341_libNumbersAscii *libNumbersAscii = nullptr;
+        Geegrow_ILI9341_libSymbolsAscii *libSymbolsAscii = nullptr;
+        Geegrow_ILI9341_libLettersCyrillic *libLettersCyrillic = nullptr;
+        Geegrow_ILI9341_deviceSD *deviceSD = nullptr;
 };
 
-#endif /* GEEGROW_ILI9341_H */
+#endif /* Geegrow_ILI9341_H */

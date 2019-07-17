@@ -1,7 +1,7 @@
 /*!
- * @file GeeGrow_ILI9341_objectLine.cpp
+ * @file Geegrow_ILI9341_objectLine.cpp
  *
- * This is an addon library for the GeeGrow ILI9341 TFT 240x320 display,
+ * This is an addon library for the Geegrow ILI9341 TFT 240x320 display,
  * which implements opportunity to create object line
  * https://www.geegrow.ru
  *
@@ -13,7 +13,7 @@
  *
  */
 
-#include "GeeGrow_ILI9341_objectLine.h"
+#include "Geegrow_ILI9341_objectLine.h"
 
 /**************************************************************************/
 /*!
@@ -23,10 +23,10 @@
                              allows to use drawing functions of main class
 */
 /**************************************************************************/
-GeeGrow_ILI9341_objectLine::GeeGrow_ILI9341_objectLine(
+Geegrow_ILI9341_objectLine::Geegrow_ILI9341_objectLine(
     uint8_t _objectType,
-    GeeGrow_ILI9341_partnership* _partner
-) : GeeGrow_ILI9341_objectBase(_objectType, _partner){
+    Geegrow_ILI9341_partnership* _partner
+) : Geegrow_ILI9341_objectBase(_objectType, _partner){
 
 }
 
@@ -35,7 +35,7 @@ GeeGrow_ILI9341_objectLine::GeeGrow_ILI9341_objectLine(
     @brief    Destruct the object
 */
 /**************************************************************************/
-GeeGrow_ILI9341_objectLine::~GeeGrow_ILI9341_objectLine(){
+Geegrow_ILI9341_objectLine::~Geegrow_ILI9341_objectLine(){
     this->disappear();
 }
 
@@ -44,7 +44,7 @@ GeeGrow_ILI9341_objectLine::~GeeGrow_ILI9341_objectLine(){
     @brief    Shows the object on the screen
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectLine::appear(){
+void Geegrow_ILI9341_objectLine::appear(){
     this->partner->drawLine(
         this->x0,
         this->y0,
@@ -59,7 +59,7 @@ void GeeGrow_ILI9341_objectLine::appear(){
     @brief    Hides the object on the screen
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectLine::disappear(){
+void Geegrow_ILI9341_objectLine::disappear(){
     this->partner->drawLine(
         this->x0,
         this->y0,
@@ -79,7 +79,7 @@ void GeeGrow_ILI9341_objectLine::disappear(){
     @param    _color  Color of the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectLine::moveTo(
+void Geegrow_ILI9341_objectLine::moveTo(
     int16_t _x0,
     int16_t _y0,
     int16_t _x1,
@@ -105,7 +105,7 @@ void GeeGrow_ILI9341_objectLine::moveTo(
     @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectLine::moveRight(int16_t _delta){
+void Geegrow_ILI9341_objectLine::moveRight(int16_t _delta){
     this->disappear();
     if (this->partner->drawLine(
             this->x0 + _delta,
@@ -129,7 +129,7 @@ void GeeGrow_ILI9341_objectLine::moveRight(int16_t _delta){
     @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectLine::moveLeft(int16_t _delta){
+void Geegrow_ILI9341_objectLine::moveLeft(int16_t _delta){
     this->disappear();
     if (this->partner->drawLine(
             this->x0 - _delta,
@@ -153,7 +153,7 @@ void GeeGrow_ILI9341_objectLine::moveLeft(int16_t _delta){
     @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectLine::moveUp(int16_t _delta){
+void Geegrow_ILI9341_objectLine::moveUp(int16_t _delta){
     this->disappear();
     if (this->partner->drawLine(
             this->x0,
@@ -177,7 +177,7 @@ void GeeGrow_ILI9341_objectLine::moveUp(int16_t _delta){
     @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectLine::moveDown(int16_t _delta){
+void Geegrow_ILI9341_objectLine::moveDown(int16_t _delta){
     this->disappear();
     if (this->partner->drawLine(
             this->x0,
@@ -202,7 +202,7 @@ void GeeGrow_ILI9341_objectLine::moveDown(int16_t _delta){
     @param    _delta_y    Numbers of pixels to move the object up
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectLine::moveRightUp(int16_t _delta_x, int16_t _delta_y){
+void Geegrow_ILI9341_objectLine::moveRightUp(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
     if (this->partner->drawLine(
             this->x0 + _delta_x,
@@ -229,7 +229,7 @@ void GeeGrow_ILI9341_objectLine::moveRightUp(int16_t _delta_x, int16_t _delta_y)
     @param    _delta_y    Numbers of pixels to move the object down
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectLine::moveRightDown(int16_t _delta_x, int16_t _delta_y){
+void Geegrow_ILI9341_objectLine::moveRightDown(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
     if (this->partner->drawLine(
             this->x0 + _delta_x,
@@ -256,7 +256,7 @@ void GeeGrow_ILI9341_objectLine::moveRightDown(int16_t _delta_x, int16_t _delta_
     @param    _delta_y    Numbers of pixels to move the object up
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectLine::moveLeftUp(int16_t _delta_x, int16_t _delta_y){
+void Geegrow_ILI9341_objectLine::moveLeftUp(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
     if (this->partner->drawLine(
             this->x0 - _delta_x,
@@ -283,7 +283,7 @@ void GeeGrow_ILI9341_objectLine::moveLeftUp(int16_t _delta_x, int16_t _delta_y){
     @param    _delta_y    Numbers of pixels to move the object down
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectLine::moveLeftDown(int16_t _delta_x, int16_t _delta_y){
+void Geegrow_ILI9341_objectLine::moveLeftDown(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
     if (this->partner->drawLine(
             this->x0 - _delta_x,
@@ -309,7 +309,7 @@ void GeeGrow_ILI9341_objectLine::moveLeftDown(int16_t _delta_x, int16_t _delta_y
     @return   X coordinate of end point
 */
 /**************************************************************************/
-int16_t GeeGrow_ILI9341_objectLine::getX1(){
+int16_t Geegrow_ILI9341_objectLine::getX1(){
     return this->x1;
 }
 
@@ -319,6 +319,6 @@ int16_t GeeGrow_ILI9341_objectLine::getX1(){
     @return   Y coordinate of end point
 */
 /**************************************************************************/
-int16_t GeeGrow_ILI9341_objectLine::getY1(){
+int16_t Geegrow_ILI9341_objectLine::getY1(){
     return this->y1;
 }

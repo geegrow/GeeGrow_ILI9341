@@ -1,7 +1,7 @@
 /*!
- * @file GeeGrow_ILI9341_objectTriangle.h
+ * @file Geegrow_ILI9341_objectTriangle.h
  *
- * This is an addon library for the GeeGrow ILI9341 TFT 240x320 display,
+ * This is an addon library for the Geegrow ILI9341 TFT 240x320 display,
  * which implements opportunity to create object triangle
  * https://www.geegrow.ru
  *
@@ -16,20 +16,20 @@
 #ifndef GEEGROW_ILI9341_OBJECT_TRIANGLE_H
 #define GEEGROW_ILI9341_OBJECT_TRIANGLE_H
 
-#include "GeeGrow_ILI9341_objectBase.h"
+#include "Geegrow_ILI9341_objectBase.h"
 
 /**************************************************************************/
 /*!
     @brief    Parent class that stores state and functions of object triangle
 */
 /**************************************************************************/
-class GeeGrow_ILI9341_objectTriangle : public GeeGrow_ILI9341_objectBase {
+class Geegrow_ILI9341_objectTriangle : public Geegrow_ILI9341_objectBase {
     public:
-        GeeGrow_ILI9341_objectTriangle(
+        Geegrow_ILI9341_objectTriangle(
             uint8_t _objectType,
-            GeeGrow_ILI9341_partnership* _partner
+            Geegrow_ILI9341_partnership* _partner
         );
-        ~GeeGrow_ILI9341_objectTriangle();
+        ~Geegrow_ILI9341_objectTriangle();
         void appear();
         void disappear();
         void moveTo(
@@ -54,7 +54,7 @@ class GeeGrow_ILI9341_objectTriangle : public GeeGrow_ILI9341_objectBase {
         int16_t getX2();
         int16_t getY2();
 
-    private:
+    protected:
         int16_t x1 = 0;
         int16_t y1 = 0;
         int16_t x2 = 0;

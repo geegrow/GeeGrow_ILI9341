@@ -1,7 +1,7 @@
 /*!
- * @file GeeGrow_ILI9341_deviceSD.h
+ * @file Geegrow_ILI9341_deviceSD.h
  *
- * This is an addon library for the GeeGrow ILI9341 TFT 240x320 display,
+ * This is an addon library for the Geegrow ILI9341 TFT 240x320 display,
  * which implements communication with SD card
  * https://www.geegrow.ru
  *
@@ -13,12 +13,12 @@
  *
  */
 
-#ifndef GEEGROW_ILI9341_DEVICE_SD_H
-#define GEEGROW_ILI9341_DEVICE_SD_H
+#ifndef Geegrow_ILI9341_DEVICE_SD_H
+#define Geegrow_ILI9341_DEVICE_SD_H
 
 #include <Arduino.h>
 #include <SdFat.h>
-#include <GeeGrow_ILI9341_defines.h>
+#include <Geegrow_ILI9341_defines.h>
 
 /**************************************************************************/
 /*!
@@ -67,10 +67,10 @@ struct BITMAPINFOHEADER_t
     @brief    Class that stores state and functions to communicate with SD card
 */
 /**************************************************************************/
-class GeeGrow_ILI9341_deviceSD {
+class Geegrow_ILI9341_deviceSD {
     public:
-        GeeGrow_ILI9341_deviceSD(){}
-        ~GeeGrow_ILI9341_deviceSD(){}
+        Geegrow_ILI9341_deviceSD(){}
+        ~Geegrow_ILI9341_deviceSD(){}
         int8_t init(uint8_t _cs_sd);
         void setFileName(char *_filename);
         int8_t getReady();
@@ -78,11 +78,11 @@ class GeeGrow_ILI9341_deviceSD {
         BITMAPFILEHEADER_t BITMAPFILEHEADER;
         BITMAPINFOHEADER_t BITMAPINFOHEADER;
 
-    private:
+    protected:
         SdFat SD;
         SdFile file;
         char *filename = nullptr;
         uint16_t sd_buffer [SD_BUFFER_SIZE];
 };
 
-#endif /* GEEGROW_ILI9341_DEVICE_SD_H */
+#endif /* Geegrow_ILI9341_DEVICE_SD_H */

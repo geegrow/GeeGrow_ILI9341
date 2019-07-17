@@ -1,7 +1,7 @@
 /*!
- * @file GeeGrow_ILI9341_objectTriangle.cpp
+ * @file Geegrow_ILI9341_objectTriangle.cpp
  *
- * This is an addon library for the GeeGrow ILI9341 TFT 240x320 display,
+ * This is an addon library for the Geegrow ILI9341 TFT 240x320 display,
  * which implements opportunity to create object triangle
  * https://www.geegrow.ru
  *
@@ -13,7 +13,7 @@
  *
  */
 
-#include "GeeGrow_ILI9341_objectTriangle.h"
+#include "Geegrow_ILI9341_objectTriangle.h"
 
 /**************************************************************************/
 /*!
@@ -23,10 +23,10 @@
                              allows to use drawing functions of main class
 */
 /**************************************************************************/
-GeeGrow_ILI9341_objectTriangle::GeeGrow_ILI9341_objectTriangle(
+Geegrow_ILI9341_objectTriangle::Geegrow_ILI9341_objectTriangle(
     uint8_t _objectType,
-    GeeGrow_ILI9341_partnership* _partner
-) : GeeGrow_ILI9341_objectBase(_objectType, _partner){
+    Geegrow_ILI9341_partnership* _partner
+) : Geegrow_ILI9341_objectBase(_objectType, _partner){
 
 }
 
@@ -35,7 +35,7 @@ GeeGrow_ILI9341_objectTriangle::GeeGrow_ILI9341_objectTriangle(
     @brief    Destruct the object
 */
 /**************************************************************************/
-GeeGrow_ILI9341_objectTriangle::~GeeGrow_ILI9341_objectTriangle(){
+Geegrow_ILI9341_objectTriangle::~Geegrow_ILI9341_objectTriangle(){
     this->disappear();
 }
 
@@ -44,7 +44,7 @@ GeeGrow_ILI9341_objectTriangle::~GeeGrow_ILI9341_objectTriangle(){
     @brief    Shows the object on the screen
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectTriangle::appear(){
+void Geegrow_ILI9341_objectTriangle::appear(){
     this->partner->drawTriangle(
         this->x0,
         this->y0,
@@ -61,7 +61,7 @@ void GeeGrow_ILI9341_objectTriangle::appear(){
     @brief    Hides the object on the screen
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectTriangle::disappear(){
+void Geegrow_ILI9341_objectTriangle::disappear(){
     this->partner->drawTriangle(
         this->x0,
         this->y0,
@@ -85,7 +85,7 @@ void GeeGrow_ILI9341_objectTriangle::disappear(){
     @param    _color  Color of the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectTriangle::moveTo(
+void Geegrow_ILI9341_objectTriangle::moveTo(
     int16_t _x0,
     int16_t _y0,
     int16_t _x1,
@@ -115,7 +115,7 @@ void GeeGrow_ILI9341_objectTriangle::moveTo(
     @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectTriangle::moveRight(int16_t _delta){
+void Geegrow_ILI9341_objectTriangle::moveRight(int16_t _delta){
     this->disappear();
     if (this->partner->drawTriangle(
             this->x0 + _delta,
@@ -142,7 +142,7 @@ void GeeGrow_ILI9341_objectTriangle::moveRight(int16_t _delta){
     @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectTriangle::moveLeft(int16_t _delta){
+void Geegrow_ILI9341_objectTriangle::moveLeft(int16_t _delta){
     this->disappear();
     if (this->partner->drawTriangle(
             this->x0 - _delta,
@@ -169,7 +169,7 @@ void GeeGrow_ILI9341_objectTriangle::moveLeft(int16_t _delta){
     @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectTriangle::moveUp(int16_t _delta){
+void Geegrow_ILI9341_objectTriangle::moveUp(int16_t _delta){
     this->disappear();
     if (this->partner->drawTriangle(
             this->x0,
@@ -196,7 +196,7 @@ void GeeGrow_ILI9341_objectTriangle::moveUp(int16_t _delta){
     @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectTriangle::moveDown(int16_t _delta){
+void Geegrow_ILI9341_objectTriangle::moveDown(int16_t _delta){
     this->disappear();
     if (this->partner->drawTriangle(
             this->x0,
@@ -224,7 +224,7 @@ void GeeGrow_ILI9341_objectTriangle::moveDown(int16_t _delta){
     @param    _delta_y    Numbers of pixels to move the object up
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectTriangle::moveRightUp(int16_t _delta_x, int16_t _delta_y){
+void Geegrow_ILI9341_objectTriangle::moveRightUp(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
     if (this->partner->drawTriangle(
             this->x0 + _delta_x,
@@ -255,7 +255,7 @@ void GeeGrow_ILI9341_objectTriangle::moveRightUp(int16_t _delta_x, int16_t _delt
     @param    _delta_y    Numbers of pixels to move the object down
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectTriangle::moveRightDown(int16_t _delta_x, int16_t _delta_y){
+void Geegrow_ILI9341_objectTriangle::moveRightDown(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
     if (this->partner->drawTriangle(
             this->x0 + _delta_x,
@@ -286,7 +286,7 @@ void GeeGrow_ILI9341_objectTriangle::moveRightDown(int16_t _delta_x, int16_t _de
     @param    _delta_y    Numbers of pixels to move the object up
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectTriangle::moveLeftUp(int16_t _delta_x, int16_t _delta_y){
+void Geegrow_ILI9341_objectTriangle::moveLeftUp(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
     if (this->partner->drawTriangle(
             this->x0 - _delta_x,
@@ -317,7 +317,7 @@ void GeeGrow_ILI9341_objectTriangle::moveLeftUp(int16_t _delta_x, int16_t _delta
     @param    _delta_y    Numbers of pixels to move the object down
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectTriangle::moveLeftDown(int16_t _delta_x, int16_t _delta_y){
+void Geegrow_ILI9341_objectTriangle::moveLeftDown(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
     if (this->partner->drawTriangle(
             this->x0 - _delta_x,
@@ -347,7 +347,7 @@ void GeeGrow_ILI9341_objectTriangle::moveLeftDown(int16_t _delta_x, int16_t _del
     @return   X coordinate of second point
 */
 /**************************************************************************/
-int16_t GeeGrow_ILI9341_objectTriangle::getX1(){
+int16_t Geegrow_ILI9341_objectTriangle::getX1(){
     return this->x1;
 }
 
@@ -357,7 +357,7 @@ int16_t GeeGrow_ILI9341_objectTriangle::getX1(){
     @return   Y coordinate of second point
 */
 /**************************************************************************/
-int16_t GeeGrow_ILI9341_objectTriangle::getY1(){
+int16_t Geegrow_ILI9341_objectTriangle::getY1(){
     return this->y1;
 }
 
@@ -367,7 +367,7 @@ int16_t GeeGrow_ILI9341_objectTriangle::getY1(){
     @return   X coordinate of third point
 */
 /**************************************************************************/
-int16_t GeeGrow_ILI9341_objectTriangle::getX2(){
+int16_t Geegrow_ILI9341_objectTriangle::getX2(){
     return this->x2;
 }
 
@@ -377,6 +377,6 @@ int16_t GeeGrow_ILI9341_objectTriangle::getX2(){
     @return   Y coordinate of third point
 */
 /**************************************************************************/
-int16_t GeeGrow_ILI9341_objectTriangle::getY2(){
+int16_t Geegrow_ILI9341_objectTriangle::getY2(){
     return this->y2;
 }

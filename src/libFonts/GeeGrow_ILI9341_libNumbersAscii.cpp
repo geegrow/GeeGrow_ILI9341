@@ -1,7 +1,7 @@
 /*!
- * @file GeeGrow_ILI9341_libNumbersAscii.cpp
+ * @file Geegrow_ILI9341_libNumbersAscii.cpp
  *
- * This is an addon library for the GeeGrow ILI9341 TFT 240x320 display,
+ * This is an addon library for the Geegrow ILI9341 TFT 240x320 display,
  * which implements bitmaps of ASCII numbers
  * https://www.geegrow.ru
  *
@@ -13,7 +13,7 @@
  *
  */
 
-#include "GeeGrow_ILI9341_libNumbersAscii.h"
+#include "Geegrow_ILI9341_libNumbersAscii.h"
 
 /**************************************************************************/
 /*!
@@ -22,7 +22,7 @@
     @return   Pointer to bitmap array
 */
 /**************************************************************************/
-uint16_t* GeeGrow_ILI9341_libNumbersAscii::getBitMap(char _char){
+uint16_t* Geegrow_ILI9341_libNumbersAscii::getBitMap(char _char){
     uint16_t idx = 0;
     if ((uint8_t)_char >= 48 && (uint8_t)_char <= 57)
         idx = ((uint8_t)_char - 48) * FONT_WIDTH;

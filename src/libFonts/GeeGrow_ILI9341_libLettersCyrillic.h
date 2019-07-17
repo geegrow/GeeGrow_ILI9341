@@ -1,7 +1,7 @@
 /*!
- * @file GeeGrow_ILI9341_libLettersCyrillic.h
+ * @file Geegrow_ILI9341_libLettersCyrillic.h
  *
- * This is an addon library for the GeeGrow ILI9341 TFT 240x320 display,
+ * This is an addon library for the Geegrow ILI9341 TFT 240x320 display,
  * which implements bitmaps of cyrillic letters
  * https://www.geegrow.ru
  *
@@ -13,12 +13,12 @@
  *
  */
 
-#ifndef GEEGROW_ILI9341_LIBLETTERS_CYRILLIC_H
-#define GEEGROW_ILI9341_LIBLETTERS_CYRILLIC_H
+#ifndef Geegrow_ILI9341_LIBLETTERS_CYRILLIC_H
+#define Geegrow_ILI9341_LIBLETTERS_CYRILLIC_H
 
 #include <Arduino.h>
 #include <avr/pgmspace.h>
-#include <GeeGrow_ILI9341_defines.h>
+#include <Geegrow_ILI9341_defines.h>
 
 /**************************************************************************/
 /*!
@@ -26,10 +26,10 @@
               of cyrillic letters
 */
 /**************************************************************************/
-class GeeGrow_ILI9341_libLettersCyrillic{
+class Geegrow_ILI9341_libLettersCyrillic{
     public:
-        GeeGrow_ILI9341_libLettersCyrillic(){}
-        ~GeeGrow_ILI9341_libLettersCyrillic(){}
+        Geegrow_ILI9341_libLettersCyrillic(){}
+        ~Geegrow_ILI9341_libLettersCyrillic(){}
         uint16_t* getBitMap(char _char, uint8_t _encoding);
 };
 
@@ -106,4 +106,4 @@ const uint16_t fontLibLettersCyrillic[] PROGMEM = {
     0x0000, 0x08C0, 0x0DE0, 0x0720, 0x0320, 0x0FE0, 0x0FE0, 0x0000         // я (ya)
 };
 
-#endif /* GEEGROW_ILI9341_LIBLETTERS_CYRILLIC_H */
+#endif /* Geegrow_ILI9341_LIBLETTERS_CYRILLIC_H */

@@ -1,7 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <GeeGrow_ILI9341.h>
+#include <Geegrow_ILI9341.h>
 
 // Pinout display
 #define LED   A0
@@ -16,7 +16,7 @@
 #define BUTTON_RIGHT_IRQ    2
 
 struct catcher_t {
-    GeeGrow_ILI9341_objectFillRect *_obj = nullptr;
+    Geegrow_ILI9341_objectFillRect *_obj = nullptr;
     int16_t width = 0;
     int16_t height = 0;
     int16_t x0 = 0;
@@ -26,7 +26,7 @@ struct catcher_t {
 };
 
 struct fly_t {
-    GeeGrow_ILI9341_objectFillRect *_obj = nullptr;
+    Geegrow_ILI9341_objectFillRect *_obj = nullptr;
     int16_t size = 0;
     int16_t x0 = 0;
     int16_t y0 = 0;
@@ -38,7 +38,7 @@ struct fly_t {
 };
 
 struct display_t {
-    GeeGrow_ILI9341 *_obj = nullptr;
+    Geegrow_ILI9341 *_obj = nullptr;
     int16_t width = 0;
     int16_t height = 0;
 };

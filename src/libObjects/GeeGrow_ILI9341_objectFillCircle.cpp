@@ -1,7 +1,7 @@
 /*!
- * @file GeeGrow_ILI9341_objectFillCircle.cpp
+ * @file Geegrow_ILI9341_objectFillCircle.cpp
  *
- * This is an addon library for the GeeGrow ILI9341 TFT 240x320 display,
+ * This is an addon library for the Geegrow ILI9341 TFT 240x320 display,
  * which implements opportunity to create object filled circle
  * https://www.geegrow.ru
  *
@@ -13,7 +13,7 @@
  *
  */
 
-#include "GeeGrow_ILI9341_objectFillCircle.h"
+#include "Geegrow_ILI9341_objectFillCircle.h"
 
 /**************************************************************************/
 /*!
@@ -23,10 +23,10 @@
                              allows to use drawing functions of main class
 */
 /**************************************************************************/
-GeeGrow_ILI9341_objectFillCircle::GeeGrow_ILI9341_objectFillCircle(
+Geegrow_ILI9341_objectFillCircle::Geegrow_ILI9341_objectFillCircle(
     uint8_t _objectType,
-    GeeGrow_ILI9341_partnership* _partner
-) : GeeGrow_ILI9341_objectBase(_objectType, _partner){
+    Geegrow_ILI9341_partnership* _partner
+) : Geegrow_ILI9341_objectBase(_objectType, _partner){
 
 }
 
@@ -35,7 +35,7 @@ GeeGrow_ILI9341_objectFillCircle::GeeGrow_ILI9341_objectFillCircle(
     @brief    Destruct the object
 */
 /**************************************************************************/
-GeeGrow_ILI9341_objectFillCircle::~GeeGrow_ILI9341_objectFillCircle(){
+Geegrow_ILI9341_objectFillCircle::~Geegrow_ILI9341_objectFillCircle(){
     this->disappear();
 }
 
@@ -44,7 +44,7 @@ GeeGrow_ILI9341_objectFillCircle::~GeeGrow_ILI9341_objectFillCircle(){
     @brief    Shows the object on the screen
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillCircle::appear(){
+void Geegrow_ILI9341_objectFillCircle::appear(){
     this->partner->fillCircle(
         this->x0,
         this->y0,
@@ -58,7 +58,7 @@ void GeeGrow_ILI9341_objectFillCircle::appear(){
     @brief    Hides the object on the screen
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillCircle::disappear(){
+void Geegrow_ILI9341_objectFillCircle::disappear(){
     this->partner->fillCircle(
         this->x0,
         this->y0,
@@ -76,7 +76,7 @@ void GeeGrow_ILI9341_objectFillCircle::disappear(){
     @param    _color    Color of the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillCircle::moveTo(
+void Geegrow_ILI9341_objectFillCircle::moveTo(
     int16_t _x0,
     int16_t _y0,
     int16_t _radius,
@@ -100,7 +100,7 @@ void GeeGrow_ILI9341_objectFillCircle::moveTo(
     @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillCircle::moveRight(int16_t _delta){
+void Geegrow_ILI9341_objectFillCircle::moveRight(int16_t _delta){
     this->disappear();
     if (this->partner->fillCircle(
             this->x0 + _delta,
@@ -122,7 +122,7 @@ void GeeGrow_ILI9341_objectFillCircle::moveRight(int16_t _delta){
     @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillCircle::moveLeft(int16_t _delta){
+void Geegrow_ILI9341_objectFillCircle::moveLeft(int16_t _delta){
     this->disappear();
     if (this->partner->fillCircle(
             this->x0 - _delta,
@@ -144,7 +144,7 @@ void GeeGrow_ILI9341_objectFillCircle::moveLeft(int16_t _delta){
     @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillCircle::moveUp(int16_t _delta){
+void Geegrow_ILI9341_objectFillCircle::moveUp(int16_t _delta){
     this->disappear();
     if (this->partner->fillCircle(
             this->x0,
@@ -166,7 +166,7 @@ void GeeGrow_ILI9341_objectFillCircle::moveUp(int16_t _delta){
     @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillCircle::moveDown(int16_t _delta){
+void Geegrow_ILI9341_objectFillCircle::moveDown(int16_t _delta){
     this->disappear();
     if (this->partner->fillCircle(
             this->x0,
@@ -189,7 +189,7 @@ void GeeGrow_ILI9341_objectFillCircle::moveDown(int16_t _delta){
     @param    _delta_y    Numbers of pixels to move the object up
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillCircle::moveRightUp(int16_t _delta_x, int16_t _delta_y){
+void Geegrow_ILI9341_objectFillCircle::moveRightUp(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
     if (this->partner->fillCircle(
             this->x0 + _delta_x,
@@ -213,7 +213,7 @@ void GeeGrow_ILI9341_objectFillCircle::moveRightUp(int16_t _delta_x, int16_t _de
     @param    _delta_y    Numbers of pixels to move the object down
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillCircle::moveRightDown(int16_t _delta_x, int16_t _delta_y){
+void Geegrow_ILI9341_objectFillCircle::moveRightDown(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
     if (this->partner->fillCircle(
             this->x0 + _delta_x,
@@ -237,7 +237,7 @@ void GeeGrow_ILI9341_objectFillCircle::moveRightDown(int16_t _delta_x, int16_t _
     @param    _delta_y    Numbers of pixels to move the object up
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillCircle::moveLeftUp(int16_t _delta_x, int16_t _delta_y){
+void Geegrow_ILI9341_objectFillCircle::moveLeftUp(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
     if (this->partner->fillCircle(
             this->x0 - _delta_x,
@@ -261,7 +261,7 @@ void GeeGrow_ILI9341_objectFillCircle::moveLeftUp(int16_t _delta_x, int16_t _del
     @param    _delta_y    Numbers of pixels to move the object down
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillCircle::moveLeftDown(int16_t _delta_x, int16_t _delta_y){
+void Geegrow_ILI9341_objectFillCircle::moveLeftDown(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
     if (this->partner->fillCircle(
             this->x0 - _delta_x,
@@ -284,7 +284,7 @@ void GeeGrow_ILI9341_objectFillCircle::moveLeftDown(int16_t _delta_x, int16_t _d
     @return   Radius of circle object
 */
 /**************************************************************************/
-int16_t GeeGrow_ILI9341_objectFillCircle::getRadius(){
+int16_t Geegrow_ILI9341_objectFillCircle::getRadius(){
     return this->radius;
 }
 
@@ -294,7 +294,7 @@ int16_t GeeGrow_ILI9341_objectFillCircle::getRadius(){
     @param    _radius    Radius of circle object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillCircle::setRadius(int16_t _radius){
+void Geegrow_ILI9341_objectFillCircle::setRadius(int16_t _radius){
     this->disappear();
     if (this->partner->fillCircle(
             this->x0,

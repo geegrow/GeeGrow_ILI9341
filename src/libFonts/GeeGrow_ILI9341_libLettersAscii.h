@@ -1,7 +1,7 @@
 /*!
- * @file GeeGrow_ILI9341_libLettersAscii.h
+ * @file Geegrow_ILI9341_libLettersAscii.h
  *
- * This is an addon library for the GeeGrow ILI9341 TFT 240x320 display,
+ * This is an addon library for the Geegrow ILI9341 TFT 240x320 display,
  * which implements bitmaps of ASCII letters
  * https://www.geegrow.ru
  *
@@ -13,12 +13,12 @@
  *
  */
 
-#ifndef GEEGROW_ILI9341_LIBLETTERS_ASCII_H
-#define GEEGROW_ILI9341_LIBLETTERS_ASCII_H
+#ifndef Geegrow_ILI9341_LIBLETTERS_ASCII_H
+#define Geegrow_ILI9341_LIBLETTERS_ASCII_H
 
 #include <Arduino.h>
 #include <avr/pgmspace.h>
-#include <GeeGrow_ILI9341_defines.h>
+#include <Geegrow_ILI9341_defines.h>
 
 /**************************************************************************/
 /*!
@@ -26,10 +26,10 @@
               of ASCII letters
 */
 /**************************************************************************/
-class GeeGrow_ILI9341_libLettersAscii{
+class Geegrow_ILI9341_libLettersAscii{
     public:
-        GeeGrow_ILI9341_libLettersAscii(){}
-        ~GeeGrow_ILI9341_libLettersAscii(){}
+        Geegrow_ILI9341_libLettersAscii(){}
+        ~Geegrow_ILI9341_libLettersAscii(){}
         uint16_t* getBitMap(char _char);
 };
 
@@ -94,4 +94,4 @@ const uint16_t fontLibLettersAscii[] PROGMEM = {
     0x0C60, 0x0E20, 0x0B20, 0x09A0, 0x08E0, 0x0860, 0x0C60, 0x0000         // z
 };
 
-#endif /* GEEGROW_ILI9341_LIBLETTERS_ASCII_H */
+#endif /* Geegrow_ILI9341_LIBLETTERS_ASCII_H */

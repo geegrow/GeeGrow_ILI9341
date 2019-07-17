@@ -1,7 +1,7 @@
 /*!
- * @file GeeGrow_ILI9341_objectPixel.h
+ * @file Geegrow_ILI9341_objectPixel.h
  *
- * This is an addon library for the GeeGrow ILI9341 TFT 240x320 display,
+ * This is an addon library for the Geegrow ILI9341 TFT 240x320 display,
  * which implements opportunity to create object pixel
  * https://www.geegrow.ru
  *
@@ -16,20 +16,20 @@
 #ifndef GEEGROW_ILI9341_OBJECT_PIXEL_H
 #define GEEGROW_ILI9341_OBJECT_PIXEL_H
 
-#include "GeeGrow_ILI9341_objectBase.h"
+#include "Geegrow_ILI9341_objectBase.h"
 
 /**************************************************************************/
 /*!
     @brief    Parent class that stores state and functions of object pixel
 */
 /**************************************************************************/
-class GeeGrow_ILI9341_objectPixel : public GeeGrow_ILI9341_objectBase {
+class Geegrow_ILI9341_objectPixel : public Geegrow_ILI9341_objectBase {
     public:
-        GeeGrow_ILI9341_objectPixel(
+        Geegrow_ILI9341_objectPixel(
             uint8_t _objectType,
-            GeeGrow_ILI9341_partnership* _partner
+            Geegrow_ILI9341_partnership* _partner
         );
-        ~GeeGrow_ILI9341_objectPixel();
+        ~Geegrow_ILI9341_objectPixel();
         void appear();
         void disappear();
         void moveTo(
@@ -46,7 +46,7 @@ class GeeGrow_ILI9341_objectPixel : public GeeGrow_ILI9341_objectBase {
         void moveLeftUp(int16_t _delta_x, int16_t _delta_y);
         void moveLeftDown(int16_t _delta_x, int16_t _delta_y);
 
-    private:
+    protected:
         int16_t x0 = 0;
         int16_t y0 = 0;
         uint16_t color = WHITE;

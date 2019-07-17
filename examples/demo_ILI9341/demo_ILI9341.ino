@@ -1,12 +1,12 @@
-#include <GeeGrow_ILI9341.h>
+#include <Geegrow_ILI9341.h>
 
 #define LED   A0
 #define RESET A3
 #define DC    A1
 #define WR    A4
 #define CS    A2
-GeeGrow_ILI9341 *display = new GeeGrow_ILI9341();
-GeeGrow_ILI9341_objectCircle *circle = display->createCircleObj();
+Geegrow_ILI9341 *display = new Geegrow_ILI9341();
+Geegrow_ILI9341_objectCircle *circle = display->createCircleObj();
 
 void setup() {
   // put your setup code here, to run once:

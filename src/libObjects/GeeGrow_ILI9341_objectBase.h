@@ -1,7 +1,7 @@
 /*!
- * @file GeeGrow_ILI9341_objectBase.h
+ * @file Geegrow_ILI9341_objectBase.h
  *
- * This is an addon library for the GeeGrow ILI9341 TFT 240x320 display,
+ * This is an addon library for the Geegrow ILI9341 TFT 240x320 display,
  * which implements opportunity to create objects on screen
  * https://www.geegrow.ru
  *
@@ -17,21 +17,21 @@
 #define GEEGROW_ILI9341_OBJECT_BASE_H
 
 #include <Arduino.h>
-#include <GeeGrow_ILI9341_defines.h>
-#include <GeeGrow_ILI9341_tools.h>
+#include <Geegrow_ILI9341_defines.h>
+#include <Geegrow_ILI9341_tools.h>
 
 /**************************************************************************/
 /*!
     @brief    Parent class that stores state and functions of object
 */
 /**************************************************************************/
-class GeeGrow_ILI9341_objectBase : public GeeGrow_ILI9341_partnership {
+class Geegrow_ILI9341_objectBase : public Geegrow_ILI9341_partnership {
     public:
-        GeeGrow_ILI9341_objectBase(
+        Geegrow_ILI9341_objectBase(
             uint8_t _objectType,
-            GeeGrow_ILI9341_partnership* _partner
+            Geegrow_ILI9341_partnership* _partner
         );
-        ~GeeGrow_ILI9341_objectBase(){}
+        ~Geegrow_ILI9341_objectBase(){}
         int16_t getX0();
         int16_t getY0();
         uint16_t getColor();
@@ -43,7 +43,7 @@ class GeeGrow_ILI9341_objectBase : public GeeGrow_ILI9341_partnership {
 
     protected:
         uint8_t objectType = OBJ_PIXEL;
-        GeeGrow_ILI9341_partnership* partner = 0;
+        Geegrow_ILI9341_partnership* partner = 0;
         int16_t x0 = 0;
         int16_t y0 = 0;
         uint16_t color = WHITE;

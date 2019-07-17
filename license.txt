@@ -1,6 +1,6 @@
 Software License Agreement (BSD License)
 
-Copyright (c) 2018, Geegrow (TM)
+Copyright (c) 2019, Geegrow (TM)
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

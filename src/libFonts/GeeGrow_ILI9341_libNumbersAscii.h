@@ -1,7 +1,7 @@
 /*!
- * @file GeeGrow_ILI9341_libNumbersAscii.h
+ * @file Geegrow_ILI9341_libNumbersAscii.h
  *
- * This is an addon library for the GeeGrow ILI9341 TFT 240x320 display,
+ * This is an addon library for the Geegrow ILI9341 TFT 240x320 display,
  * which implements bitmaps of ASCII numbers
  * https://www.geegrow.ru
  *
@@ -18,7 +18,7 @@
 
 #include <Arduino.h>
 #include <avr/pgmspace.h>
-#include <GeeGrow_ILI9341_defines.h>
+#include <Geegrow_ILI9341_defines.h>
 
 /**************************************************************************/
 /*!
@@ -26,10 +26,10 @@
               of ASCII numbers
 */
 /**************************************************************************/
-class GeeGrow_ILI9341_libNumbersAscii {
+class Geegrow_ILI9341_libNumbersAscii {
     public:
-        GeeGrow_ILI9341_libNumbersAscii(){}
-        ~GeeGrow_ILI9341_libNumbersAscii(){}
+        Geegrow_ILI9341_libNumbersAscii(){}
+        ~Geegrow_ILI9341_libNumbersAscii(){}
         uint16_t* getBitMap(char _char);
 };
 

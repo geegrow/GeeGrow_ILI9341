@@ -1,13 +1,13 @@
-# GeeGrow_ILI9341
+# Geegrow_ILI9341
 
-This library is specially written to provide communication with board GeeGrow
+This library is specially written to provide communication with board Geegrow
 2.4" SPI TFT 240x320 Display (ILI9341). The display can be purchased in our
 store https://geegrow.ru . The board consists a jack for SD card, so there is
 an implementation of appropriate functionality, which needs a separate library
 for SD card SdFat (https://github.com/greiman/SdFat). Also there is an
 implemented opportunity to create objects on the screen with simple management.
 
-For more information you can visit https://github.com/geegrow/GeeGrow_ILI9341
+For more information you can visit https://github.com/geegrow/Geegrow_ILI9341
 
 --------------------------------------------------------------------
 

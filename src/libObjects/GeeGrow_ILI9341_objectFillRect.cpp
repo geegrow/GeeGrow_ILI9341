@@ -1,7 +1,7 @@
 /*!
- * @file GeeGrow_ILI9341_objectFillRect.cpp
+ * @file Geegrow_ILI9341_objectFillRect.cpp
  *
- * This is an addon library for the GeeGrow ILI9341 TFT 240x320 display,
+ * This is an addon library for the Geegrow ILI9341 TFT 240x320 display,
  * which implements opportunity to create object filled rectangle
  * https://www.geegrow.ru
  *
@@ -13,7 +13,7 @@
  *
  */
 
-#include "GeeGrow_ILI9341_objectFillRect.h"
+#include "Geegrow_ILI9341_objectFillRect.h"
 
 /**************************************************************************/
 /*!
@@ -23,10 +23,10 @@
                              allows to use drawing functions of main class
 */
 /**************************************************************************/
-GeeGrow_ILI9341_objectFillRect::GeeGrow_ILI9341_objectFillRect(
+Geegrow_ILI9341_objectFillRect::Geegrow_ILI9341_objectFillRect(
     uint8_t _objectType,
-    GeeGrow_ILI9341_partnership* _partner
-) : GeeGrow_ILI9341_objectBase(_objectType, _partner){
+    Geegrow_ILI9341_partnership* _partner
+) : Geegrow_ILI9341_objectBase(_objectType, _partner){
 
 }
 
@@ -35,7 +35,7 @@ GeeGrow_ILI9341_objectFillRect::GeeGrow_ILI9341_objectFillRect(
     @brief    Destruct the object
 */
 /**************************************************************************/
-GeeGrow_ILI9341_objectFillRect::~GeeGrow_ILI9341_objectFillRect(){
+Geegrow_ILI9341_objectFillRect::~Geegrow_ILI9341_objectFillRect(){
     this->disappear();
 }
 
@@ -44,7 +44,7 @@ GeeGrow_ILI9341_objectFillRect::~GeeGrow_ILI9341_objectFillRect(){
     @brief    Shows the object on the screen
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillRect::appear(){
+void Geegrow_ILI9341_objectFillRect::appear(){
     this->partner->fillRect(
         this->x0,
         this->y0,
@@ -59,7 +59,7 @@ void GeeGrow_ILI9341_objectFillRect::appear(){
     @brief    Hides the object on the screen
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillRect::disappear(){
+void Geegrow_ILI9341_objectFillRect::disappear(){
     this->partner->fillRect(
         this->x0,
         this->y0,
@@ -79,7 +79,7 @@ void GeeGrow_ILI9341_objectFillRect::disappear(){
     @param    _color    Color of the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillRect::moveTo(
+void Geegrow_ILI9341_objectFillRect::moveTo(
     int16_t _x0,
     int16_t _y0,
     int16_t _width,
@@ -105,7 +105,7 @@ void GeeGrow_ILI9341_objectFillRect::moveTo(
     @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillRect::moveRight(int16_t _delta){
+void Geegrow_ILI9341_objectFillRect::moveRight(int16_t _delta){
     this->disappear();
     if (this->partner->fillRect(
             this->x0 + _delta,
@@ -128,7 +128,7 @@ void GeeGrow_ILI9341_objectFillRect::moveRight(int16_t _delta){
     @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillRect::moveLeft(int16_t _delta){
+void Geegrow_ILI9341_objectFillRect::moveLeft(int16_t _delta){
     this->disappear();
     if (this->partner->fillRect(
             this->x0 - _delta,
@@ -151,7 +151,7 @@ void GeeGrow_ILI9341_objectFillRect::moveLeft(int16_t _delta){
     @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillRect::moveUp(int16_t _delta){
+void Geegrow_ILI9341_objectFillRect::moveUp(int16_t _delta){
     this->disappear();
     if (this->partner->fillRect(
             this->x0,
@@ -174,7 +174,7 @@ void GeeGrow_ILI9341_objectFillRect::moveUp(int16_t _delta){
     @param    _delta    Numbers of pixels to move the object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillRect::moveDown(int16_t _delta){
+void Geegrow_ILI9341_objectFillRect::moveDown(int16_t _delta){
     this->disappear();
     if (this->partner->fillRect(
             this->x0,
@@ -198,7 +198,7 @@ void GeeGrow_ILI9341_objectFillRect::moveDown(int16_t _delta){
     @param    _delta_y    Numbers of pixels to move the object up
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillRect::moveRightUp(int16_t _delta_x, int16_t _delta_y){
+void Geegrow_ILI9341_objectFillRect::moveRightUp(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
     if (this->partner->fillRect(
             this->x0 + _delta_x,
@@ -223,7 +223,7 @@ void GeeGrow_ILI9341_objectFillRect::moveRightUp(int16_t _delta_x, int16_t _delt
     @param    _delta_y    Numbers of pixels to move the object down
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillRect::moveRightDown(int16_t _delta_x, int16_t _delta_y){
+void Geegrow_ILI9341_objectFillRect::moveRightDown(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
     if (this->partner->fillRect(
             this->x0 + _delta_x,
@@ -248,7 +248,7 @@ void GeeGrow_ILI9341_objectFillRect::moveRightDown(int16_t _delta_x, int16_t _de
     @param    _delta_y    Numbers of pixels to move the object up
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillRect::moveLeftUp(int16_t _delta_x, int16_t _delta_y){
+void Geegrow_ILI9341_objectFillRect::moveLeftUp(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
     if (this->partner->fillRect(
             this->x0 - _delta_x,
@@ -273,7 +273,7 @@ void GeeGrow_ILI9341_objectFillRect::moveLeftUp(int16_t _delta_x, int16_t _delta
     @param    _delta_y    Numbers of pixels to move the object down
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillRect::moveLeftDown(int16_t _delta_x, int16_t _delta_y){
+void Geegrow_ILI9341_objectFillRect::moveLeftDown(int16_t _delta_x, int16_t _delta_y){
     this->disappear();
     if (this->partner->fillRect(
             this->x0 - _delta_x,
@@ -297,7 +297,7 @@ void GeeGrow_ILI9341_objectFillRect::moveLeftDown(int16_t _delta_x, int16_t _del
     @return   Width of rectangle object
 */
 /**************************************************************************/
-int16_t GeeGrow_ILI9341_objectFillRect::getWidth(){
+int16_t Geegrow_ILI9341_objectFillRect::getWidth(){
     return this->width;
 }
 
@@ -307,7 +307,7 @@ int16_t GeeGrow_ILI9341_objectFillRect::getWidth(){
     @return   Height of rectangle object
 */
 /**************************************************************************/
-int16_t GeeGrow_ILI9341_objectFillRect::getHeight(){
+int16_t Geegrow_ILI9341_objectFillRect::getHeight(){
     return this->height;
 }
 
@@ -317,7 +317,7 @@ int16_t GeeGrow_ILI9341_objectFillRect::getHeight(){
     @param    _width    Width of rectangle object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillRect::setWidth(int16_t _width){
+void Geegrow_ILI9341_objectFillRect::setWidth(int16_t _width){
     this->disappear();
     if (this->partner->fillRect(
             this->x0,
@@ -340,7 +340,7 @@ void GeeGrow_ILI9341_objectFillRect::setWidth(int16_t _width){
     @param   _height    Height of rectangle object
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_objectFillRect::setHeight(int16_t _height){
+void Geegrow_ILI9341_objectFillRect::setHeight(int16_t _height){
     this->disappear();
     if (this->partner->fillRect(
             this->x0,

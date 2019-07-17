@@ -1,7 +1,7 @@
 /*!
- * @file GeeGrow_ILI9341_deviceSD.cpp
+ * @file Geegrow_ILI9341_deviceSD.cpp
  *
- * This is an addon library for the GeeGrow ILI9341 TFT 240x320 display,
+ * This is an addon library for the Geegrow ILI9341 TFT 240x320 display,
  * which implements communication with SD card
  * https://www.geegrow.ru
  *
@@ -13,7 +13,7 @@
  *
  */
 
-#include "GeeGrow_ILI9341_deviceSD.h"
+#include "Geegrow_ILI9341_deviceSD.h"
 
 /**************************************************************************/
 /*!
@@ -22,7 +22,7 @@
     @return   Status byte
 */
 /**************************************************************************/
-int8_t GeeGrow_ILI9341_deviceSD::init(uint8_t _cs_sd){
+int8_t Geegrow_ILI9341_deviceSD::init(uint8_t _cs_sd){
     pinMode(_cs_sd, OUTPUT);
     if (!this->SD.begin(_cs_sd)){
         Serial.println(F("init(): SD init error"));
@@ -36,7 +36,7 @@ int8_t GeeGrow_ILI9341_deviceSD::init(uint8_t _cs_sd){
     @brief    Set filename of image, that we will read from SD card
 */
 /**************************************************************************/
-void GeeGrow_ILI9341_deviceSD::setFileName(char *_filename){
+void Geegrow_ILI9341_deviceSD::setFileName(char *_filename){
     if (!this->SD.exists(_filename)){
         Serial.println(F("setFileName(): file doesn't exist"));
         return;
@@ -50,7 +50,7 @@ void GeeGrow_ILI9341_deviceSD::setFileName(char *_filename){
     @return   Status byte
 */
 /**************************************************************************/
-int8_t GeeGrow_ILI9341_deviceSD::getReady(){
+int8_t Geegrow_ILI9341_deviceSD::getReady(){
     if (!this->file.open(this->filename)){
         Serial.println(F("getReady(): file open error"));
         return -1;
@@ -70,7 +70,7 @@ int8_t GeeGrow_ILI9341_deviceSD::getReady(){
     @return   Pointer to data, read from SD card
 */
 /**************************************************************************/
-uint16_t* GeeGrow_ILI9341_deviceSD::getBlock(uint32_t _pos, uint16_t _size_bytes){
+uint16_t* Geegrow_ILI9341_deviceSD::getBlock(uint32_t _pos, uint16_t _size_bytes){
     if (_size_bytes > SD_BUFFER_SIZE){
         Serial.println(F("getNextBlock(): size too big"));
         return nullptr;

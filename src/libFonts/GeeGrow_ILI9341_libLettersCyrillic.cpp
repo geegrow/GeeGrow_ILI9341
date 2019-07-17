@@ -1,7 +1,7 @@
 /*!
- * @file GeeGrow_ILI9341_libLettersCyrillic.cpp
+ * @file Geegrow_ILI9341_libLettersCyrillic.cpp
  *
- * This is an addon library for the GeeGrow ILI9341 TFT 240x320 display,
+ * This is an addon library for the Geegrow ILI9341 TFT 240x320 display,
  * which implements bitmaps of cyrillic letters
  * https://www.geegrow.ru
  *
@@ -13,7 +13,7 @@
  *
  */
 
-#include "GeeGrow_ILI9341_libLettersCyrillic.h"
+#include "Geegrow_ILI9341_libLettersCyrillic.h"
 
 /**************************************************************************/
 /*!
@@ -22,7 +22,7 @@
     @return   Pointer to bitmap array
 */
 /**************************************************************************/
-uint16_t* GeeGrow_ILI9341_libLettersCyrillic::getBitMap(char _char, uint8_t _encoding){
+uint16_t* Geegrow_ILI9341_libLettersCyrillic::getBitMap(char _char, uint8_t _encoding){
     uint16_t idx = 0;
     if (_encoding == ENCODING_UTF8)
         if ((uint8_t)_char >= 144 && (uint8_t)_char <= 175)         // А - Я

@@ -1,7 +1,7 @@
 #ifndef DRAWER_H
 #define DRAWER_H
 
-#include <GeeGrow_ILI9341.h>
+#include <Geegrow_ILI9341.h>
 #include <avr/pgmspace.h>
 #include "tools.h"
 
@@ -11,7 +11,7 @@
                             PORTF |= _BV(PF1);  \
                         }
 
-class Drawer : public GeeGrow_ILI9341{
+class Drawer : public Geegrow_ILI9341{
     public:
         static Drawer& instance() {
             static Drawer instance;

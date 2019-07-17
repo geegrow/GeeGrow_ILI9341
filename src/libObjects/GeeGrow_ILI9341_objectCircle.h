@@ -1,7 +1,7 @@
 /*!
- * @file GeeGrow_ILI9341_objectCircle.h
+ * @file Geegrow_ILI9341_objectCircle.h
  *
- * This is an addon library for the GeeGrow ILI9341 TFT 240x320 display,
+ * This is an addon library for the Geegrow ILI9341 TFT 240x320 display,
  * which implements opportunity to create object circle
  * https://www.geegrow.ru
  *
@@ -16,20 +16,20 @@
 #ifndef GEEGROW_ILI9341_OBJECT_CIRCLE_H
 #define GEEGROW_ILI9341_OBJECT_CIRCLE_H
 
-#include "GeeGrow_ILI9341_objectBase.h"
+#include "Geegrow_ILI9341_objectBase.h"
 
 /**************************************************************************/
 /*!
     @brief    Class that stores state and functions of object circle
 */
 /**************************************************************************/
-class GeeGrow_ILI9341_objectCircle : public GeeGrow_ILI9341_objectBase {
+class Geegrow_ILI9341_objectCircle : public Geegrow_ILI9341_objectBase {
     public:
-        GeeGrow_ILI9341_objectCircle(
+        Geegrow_ILI9341_objectCircle(
             uint8_t _objectType,
-            GeeGrow_ILI9341_partnership* _partner
+            Geegrow_ILI9341_partnership* _partner
         );
-        ~GeeGrow_ILI9341_objectCircle();
+        ~Geegrow_ILI9341_objectCircle();
         void appear();
         void disappear();
         void moveTo(
@@ -49,7 +49,7 @@ class GeeGrow_ILI9341_objectCircle : public GeeGrow_ILI9341_objectBase {
         int16_t getRadius();
         void setRadius(int16_t _radius);
 
-    private:
+    protected:
         int16_t radius = 0;
 };
 
